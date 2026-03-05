@@ -1,0 +1,82 @@
+/* Contenedor principal ocupa toda la pantalla sin provocar scroll horizontal */
+.admin-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;       /* altura completa */
+  min-width: 99vw;              /* ancho completo, evita scroll horizontal */
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  box-sizing: border-box;   /* incluye padding/border en width */
+  overflow-x: hidden;       /* previene scroll horizontal */
+}
+
+/* Contenido principal */
+.admin-main {
+  flex: 1;                  /* ocupa todo el espacio entre header y footer */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Título */
+.admin-main h1 {
+  color: #2f855a;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* Cada campo del formulario */
+.admin-field {
+  display: flex;
+  flex-direction: column;
+  width: 80%;              /* adaptable al ancho de la pantalla */
+  max-width: 800px;        /* no se estire demasiado en pantallas grandes */
+  color: #4a5568;
+  box-sizing: border-box;   /* importante para que el padding no genere scroll */
+}
+
+/* Etiqueta de cada campo */
+.admin-field label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Textarea */
+.admin-field textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 80px;
+  box-sizing: border-box;
+}
+
+/* Botón guardar */
+.admin-main button {
+  background-color: #2f855a;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  width: 50%;
+  max-width: 300px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.admin-main button:hover {
+  background-color: #276749;
+}
+
+/* Mensaje de carga */
+.admin-loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #4a5568;
+}

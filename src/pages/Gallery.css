@@ -1,0 +1,46 @@
+/* Contenedor principal de la página */
+.gallery-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* toda la altura de la ventana */
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+}
+
+/* Contenedor del contenido principal */
+.gallery-main {
+  flex: 1; /* ocupa el espacio restante entre header y footer */
+  width: 100vw; /* ancho completo */
+  padding: 20px;
+  display: grid;
+  background-color: white;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  box-sizing: border-box;
+}
+
+/* Cada tarjeta de imagen */
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen */
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Pie de foto */
+.gallery-caption {
+  padding: 10px;
+  font-size: 0.9rem;
+  color: #4a5568;
+  text-align: center;
+}

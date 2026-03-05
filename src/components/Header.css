@@ -1,0 +1,36 @@
+/* Contenedor del header */
+.header {
+  background-color: #462f8a; /* verde */
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* columnas en móvil */
+  align-items: center;
+}
+
+/* Título principal */
+.header-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Navegación */
+.header-nav {
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* para móviles */
+}
+
+/* Links */
+.header-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.header-nav a:hover {
+  text-decoration: underline;
+}
