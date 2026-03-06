@@ -1,3 +1,25 @@
+/* Modo debug - QUITAR LUEGO*/
+*{
+    outline: 1px solid red;
+}
+
+/* reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* tamaño completo de la pantalla */
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* evitar scroll horizontal */
+body {
+  overflow-x: hidden;
+}
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -10,6 +32,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --color-primary: #0B3D91;   /* azul principal */
+  --color-secondary: #E10600; /* rojo */
+  --color-accent: #FFD400;    /* amarillo */
+  --color-light: #FFFFFF;     /* blanco */
+  --color-bg: #F5F5F5;        /* fondo suave */
 }
 
 a {

@@ -1,0 +1,73 @@
+.home-page{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f4f6f8;
+}
+
+/* HERO */
+.hero-section{
+  width: 100%;
+  background: var(--color-light);
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* MAIN GRID */
+.home-main{
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 25px;
+}
+
+/* CARDS */
+.home-card{
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.home-card h2{
+  color: #0B3D91;
+  margin-bottom: 10px;
+}
+
+.home-card p{
+  color: #555;
+  line-height: 1.5;
+}
+
+/* INSCRIPCIONES */
+.inscripciones-section{
+  background: linear-gradient(90deg,#0B3D91,#E10600);
+  padding: 60px 20px;
+  color: white;
+}
+
+.inscripciones-content{
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.btn-inscripcion{
+  margin-top: 20px;
+  background: #FFD400;
+  color: black;
+  border: none;
+  padding: 12px 25px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-inscripcion:hover{
+  background: white;
+}

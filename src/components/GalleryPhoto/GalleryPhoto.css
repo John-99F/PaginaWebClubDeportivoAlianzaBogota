@@ -1,0 +1,16 @@
+.gallery {
+  width: 80%;
+  margin: auto;
+}
+
+.gallery-photo-container {
+  width: 100%;
+}
+
+.gallery img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: 0.6s;
+}

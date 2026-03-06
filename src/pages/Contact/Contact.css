@@ -1,0 +1,17 @@
+.contact-pages {
+  width: 100%;
+  min-height: 100%; /* toda la altura de la ventana */
+  font-family: Arial, sans-serif;
+  background-color: #F5F5F5;
+  box-sizing: border-box;
+}
+
+.contact-pages h2 {
+  color: black;
+}
+
+.main-container {
+  flex: 1; /* ocupa el espacio restante entre header y footer */
+  width: 100%; /* ancho completo */
+  box-sizing: border-box;
+}

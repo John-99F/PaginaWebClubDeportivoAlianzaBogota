@@ -1,13 +1,19 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 // Páginas públicas
-import Home from "./pages/Home.jsx";
-import About from "./pages/About.jsx";
-import Gallery from "./pages/Gallery.jsx";
-import Login from "./pages/login.jsx";
+import Home from "./pages/Home/Home.jsx";
+import About from "./pages/About/About.jsx";
+import Gallery from "./pages/Gallery/Gallery.jsx";
+import Login from "./pages/Login/login.jsx";
 // Dashboard / Admin
-import Admin from "./pages/Admin.jsx";
+import Admin from "./pages/Admin/Admin.jsx";
+import Contact from "./pages/Contact/Contact.jsx";
 
 // Componente de login simple (puedes personalizarlo)
 
@@ -31,6 +37,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/contact" element={<Contact />} />
         {/* Dashboard protegido */}
         <Route
           path="/admin"

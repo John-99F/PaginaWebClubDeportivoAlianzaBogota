@@ -1,7 +1,7 @@
 /* Contenedor del header */
 .header {
-  background-color: #462f8a; /* verde */
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-light);
   padding: 20px;
   display: flex;
   flex-direction: column; /* columnas en móvil */

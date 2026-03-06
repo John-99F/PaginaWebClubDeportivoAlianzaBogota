@@ -8,7 +8,7 @@ export default function Header() {
         <a href="/">Inicio</a>
         <a href="/about">Nosotros</a>
         <a href="/gallery">Galería</a>
-           <a href="/gallery">Contactanos</a>
+        <a href="/contact">Contactanos</a>
       </nav>
     </header>
   );

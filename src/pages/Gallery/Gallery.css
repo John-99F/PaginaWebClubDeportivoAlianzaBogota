@@ -2,6 +2,7 @@
 .gallery-page {
   display: flex;
   flex-direction: column;
+  max-width: 100%;
   min-height: 100vh; /* toda la altura de la ventana */
   font-family: Arial, sans-serif;
   background-color: #f7f7f7;
@@ -10,7 +11,7 @@
 /* Contenedor del contenido principal */
 .gallery-main {
   flex: 1; /* ocupa el espacio restante entre header y footer */
-  width: 100vw; /* ancho completo */
+  width: 100%; /* ancho completo */
   padding: 20px;
   display: grid;
   background-color: white;
@@ -43,4 +44,8 @@
   font-size: 0.9rem;
   color: #4a5568;
   text-align: center;
+}
+
+.gallery-photos {
+  width: 100%;
 }
