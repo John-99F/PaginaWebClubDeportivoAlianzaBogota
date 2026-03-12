@@ -5,7 +5,7 @@
   min-height: 100vh;       /* altura completa */
   min-width: 99vw;              /* ancho completo, evita scroll horizontal */
   font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
+  background-color: var(--color-bg);
   box-sizing: border-box;   /* incluye padding/border en width */
   overflow-x: hidden;       /* previene scroll horizontal */
 }
@@ -24,7 +24,7 @@
 
 /* Título */
 .admin-main h1 {
-  color: #2f855a;
+  color: var(--color-primary);
   font-size: 2rem;
   margin-bottom: 10px;
 }
@@ -35,7 +35,7 @@
   flex-direction: column;
   width: 80%;              /* adaptable al ancho de la pantalla */
   max-width: 800px;        /* no se estire demasiado en pantallas grandes */
-  color: #4a5568;
+  color: var(--color-secondary);
   box-sizing: border-box;   /* importante para que el padding no genere scroll */
 }
 
@@ -54,11 +54,13 @@
   resize: vertical;
   min-height: 80px;
   box-sizing: border-box;
+  color: #4a5568;
+  background-color: var(--color-bg);
 }
 
 /* Botón guardar */
 .admin-main button {
-  background-color: #2f855a;
+  background-color: var(--color-accent);
   color: white;
   padding: 12px;
   border: none;
@@ -71,7 +73,7 @@
 }
 
 .admin-main button:hover {
-  background-color: #276749;
+  background-color: var(--color-secondary);
 }
 
 /* Mensaje de carga */

@@ -1,73 +1,117 @@
 .home-page{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: #f4f6f8;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  background:#f4f6f8;
 }
 
 /* HERO */
-.hero-section{
-  width: 100%;
-  background: var(--color-light);
-  padding: 20px 0;
-  display: flex;
-  justify-content: center;
+
+.hero{
+  background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+  url("/src/assets/img/futbol1.jpg");
+  background-size:cover;
+  background-position:center;
+  height:420px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
 }
 
-/* MAIN GRID */
+.hero-content h1{
+  font-size:40px;
+}
+
+.hero-btn{
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  background:#FFD400;
+  font-weight:bold;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* GALERIA */
+
+.gallery-section{
+  padding:40px;
+  text-align:center;
+}
+
+.gallery-section h2{
+  color:#0B3D91;
+  margin-bottom:20px;
+}
+
+/* GRID INFORMACION */
+
 .home-main{
-  max-width: 1200px;
-  margin: auto;
-  padding: 40px 20px;
+  max-width:1200px;
+  margin:auto;
+  padding:40px 20px;
 
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 25px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
 }
 
-/* CARDS */
 .home-card{
-  background: white;
-  border-radius: 10px;
-  padding: 25px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  text-align: center;
+  background:white;
+  border-radius:10px;
+  padding:25px;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
 }
 
 .home-card h2{
-  color: #0B3D91;
-  margin-bottom: 10px;
+  color:#0B3D91;
 }
 
-.home-card p{
-  color: #555;
-  line-height: 1.5;
+/* CATEGORIAS */
+
+.categorias{
+  background:#0B3D91;
+  color:white;
+  padding:60px 20px;
+  text-align:center;
+}
+
+.categorias-grid{
+  margin-top:30px;
+
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.categoria-card{
+  background:white;
+  color:black;
+  padding:20px;
+  border-radius:10px;
+  font-weight:bold;
 }
 
 /* INSCRIPCIONES */
-.inscripciones-section{
-  background: linear-gradient(90deg,#0B3D91,#E10600);
-  padding: 60px 20px;
-  color: white;
-}
 
-.inscripciones-content{
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
+.inscripciones{
+  padding:60px 20px;
+  margin-top: 2%;
+  text-align:center;
+  background:linear-gradient(90deg,#0B3D91,#E10600);
+  color:white;
 }
 
 .btn-inscripcion{
-  margin-top: 20px;
-  background: #FFD400;
-  color: black;
-  border: none;
-  padding: 12px 25px;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.btn-inscripcion:hover{
-  background: white;
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  background:#FFD400;
+  font-weight:bold;
+  border-radius:6px;
+  cursor:pointer;
 }

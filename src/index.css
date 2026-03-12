@@ -1,7 +1,7 @@
 /* Modo debug - QUITAR LUEGO*/
-*{
+/**{
     outline: 1px solid red;
-}
+} */
 
 /* reset básico */
 * {
