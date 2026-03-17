@@ -14,6 +14,7 @@ import Login from "./pages/Login/login.jsx";
 // Dashboard / Admin
 import Admin from "./pages/Admin/Admin.jsx";
 import Contact from "./pages/Contact/Contact.jsx";
+import Category from "./pages/Category/Category.jsx";
 
 // Componente de login simple (puedes personalizarlo)
 
@@ -38,6 +39,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/category" element={<Category />} />
         {/* Dashboard protegido */}
         <Route
           path="/admin"

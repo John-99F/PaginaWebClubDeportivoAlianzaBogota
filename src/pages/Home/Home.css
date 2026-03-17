@@ -29,7 +29,7 @@
   margin-top:20px;
   padding:12px 25px;
   border:none;
-  background:#FFD400;
+  background: var(--color-secondary);
   font-weight:bold;
   border-radius:6px;
   cursor:pointer;

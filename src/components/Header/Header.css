@@ -2,35 +2,71 @@
 .header {
   background: var(--color-primary);
   color: var(--color-light);
-  padding: 20px;
+  padding: 15px 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Contenedor interno */
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+
   display: flex;
-  flex-direction: column; /* columnas en móvil */
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* para móvil */
+}
+
+/* Logo + título */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Imagen del logo */
+.header-logo img {
+  width: 100%;
+  height: 100px;
 }
 
 /* Título principal */
 .header-title {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: bold;
   margin: 0;
 }
 
 /* Navegación */
 .header-nav {
-  margin-top: 10px;
   display: flex;
   gap: 20px;
-  flex-wrap: wrap; /* para móviles */
+  flex-wrap: wrap;
 }
 
 /* Links */
 .header-nav a {
-  color: white;
+  color: var(--color-light);
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease-in-out;
 }
 
 .header-nav a:hover {
-  text-decoration: underline;
+  color: var(--color-accent);
+}
+
+/* Responsive móvil */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .header-nav {
+    justify-content: center;
+  }
 }
