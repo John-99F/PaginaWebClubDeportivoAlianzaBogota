@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { getContenido } from "../../services/api";
 import GalleryPhoto from "../../components/GalleryPhoto/GalleryPhoto";
+import Shedule from "../../components/Shedule/Shedule";
 import "./Home.css";
 
 export default function Home() {
@@ -12,9 +13,43 @@ export default function Home() {
     getContenido().then((res) => setContenido(res));
   }, []);
 
+  const categorias = [
+    {
+      nombre: "Baby",
+      edad: "(2020 - 2021)",
+      descripcion:
+        "Introducción al fútbol, coordinación motriz y trabajo en equipo.",
+    },
+    {
+      nombre: "Iniciación",
+      edad: "(2018 - 2019)",
+      descripcion:
+        "Desarrollo de fundamentos técnicos y comprensión del juego.",
+    },
+    {
+      nombre: "Transición",
+      edad: "(2016 - 2017)",
+      descripcion: "Entrenamiento táctico, físico y participación en torneos.",
+    },
+    {
+      nombre: "Pre infantil",
+      edad: "(2014 - 2015)",
+      descripcion: "Entrenamiento táctico, físico y participación en torneos.",
+    },
+    {
+      nombre: "Infantil",
+      edad: "(2012 - 2013)",
+      descripcion: "Entrenamiento táctico, físico y participación en torneos.",
+    },
+    {
+      nombre: "Pre Juvenil",
+      edad: "(2010 - 2011)",
+      descripcion: "Entrenamiento táctico, físico y participación en torneos.",
+    },
+  ];
+
   return (
     <div className="home-page">
-
       <Header />
 
       <section className="hero">
@@ -40,32 +75,21 @@ export default function Home() {
           </section>
         ))}
       </main>
+      <section className="horarios">
+        <Shedule />
+      </section>
 
       <section className="categorias">
-        <h2>Categorías de Formación</h2>
-
+        <h2> Nuestras categorías de formación</h2>
         <div className="categorias-grid">
-
-          <div className="categoria-card">
-            <h3>Sub 8</h3>
-            <p>Niños de 6 a 8 años</p>
-          </div>
-
-          <div className="categoria-card">
-            <h3>Sub 10</h3>
-            <p>Niños de 9 a 10 años</p>
-          </div>
-
-          <div className="categoria-card">
-            <h3>Sub 13</h3>
-            <p>Niños de 11 a 13 años</p>
-          </div>
-
-          <div className="categoria-card">
-            <h3>Sub 16</h3>
-            <p>Jóvenes de 14 a 16 años</p>
-          </div>
-
+          {categorias.map((element, index) => {
+            return (
+              <div key={index} className="categoria-card">
+                <h3>{element.nombre}</h3>
+                <p>{element.edad}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -77,13 +101,10 @@ export default function Home() {
           deportiva. Desarrollamos talento, disciplina y trabajo en equipo.
         </p>
 
-        <button className="btn-inscripcion">
-          Contactar
-        </button>
+        <button className="btn-inscripcion">Contactar</button>
       </section>
 
       <Footer />
-
     </div>
   );
 }

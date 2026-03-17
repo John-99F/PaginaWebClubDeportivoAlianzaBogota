@@ -21,8 +21,8 @@ export default function Footer() {
 
         <div className="footer-section">
           <h3>Contacto</h3>
-          <p>📍 Bogotá, Colombia</p>
-          <p>📞 +57 300 000 0000</p>
+          <p>📍 Bogotá, Colombia - Cll 82 100a -91</p>
+          <p>📞 +57 310 512 7034</p>
           <p>✉ info@alianzabogota.com</p>
         </div>
 

@@ -1,0 +1,46 @@
+.schedule{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+  text-align:center;
+  color: black;
+}
+
+.schedule-title{
+  color:var(--color-secondary);
+  margin-bottom:30px;
+}
+
+/* tabla */
+
+.schedule-table{
+  width:100%;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* header */
+
+.schedule-header{
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  background:var(--color-secondary);
+  color:white;
+  font-weight:bold;
+  padding:15px;
+}
+
+/* filas */
+
+.schedule-row{
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  padding:15px;
+  background:white;
+  border-bottom:1px solid #eee;
+}
+
+.schedule-row:nth-child(even){
+  background:#f5f5f5;
+}

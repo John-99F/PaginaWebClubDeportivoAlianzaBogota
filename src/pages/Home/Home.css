@@ -13,7 +13,7 @@
   background-size:cover;
   background-position:center;
   height:420px;
-
+margin-top: 10px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -68,7 +68,7 @@
 }
 
 .home-card h2{
-  color:#0B3D91;
+  color:var(--color-secondary);
 }
 
 /* CATEGORIAS */
@@ -78,11 +78,12 @@
   color:white;
   padding:60px 20px;
   text-align:center;
+  border-radius: 5px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
 }
 
 .categorias-grid{
   margin-top:30px;
-
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:20px;
@@ -114,4 +115,15 @@
   font-weight:bold;
   border-radius:6px;
   cursor:pointer;
+}
+
+.horarios {
+  padding:10px 20px;
+  margin-top: 2%;
+  text-align:center;
+  color:white;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background:white;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
 }
