@@ -21,7 +21,7 @@ export default function Contact() {
       <section className="contact-container">
         <div className="contact-map">
           <iframe
-            src="https://www.google.com/maps?q=bogota&output=embed"
+            src="https://www.google.com/maps?q=Parque+San+Andres+Bochica+Bogota&output=embed"
             width="100%"
             height="100%"
             style={{ border: 0 }}
@@ -33,9 +33,12 @@ export default function Contact() {
         <div className="contact-info">
           <h2>Información de contacto</h2>
           <p>📍 Bogotá, Colombia - Cll 82 100a -91</p>
-          <p> <FaWhatsapp /> +57 310 512 7034</p>
-          <p><FaMailBulk /> info@alianzabogota.com</p>
-          <p>⏰ Lunes a Viernes: 3:00 PM - 10:30 PM</p>
+          <p>
+            <FaWhatsapp /> +57 310 512 7034
+          </p>
+          <p>
+            <FaMailBulk /> info@alianzabogota.com
+          </p>
 
           <div className="contact-buttons">
             <a
