@@ -15,7 +15,6 @@ export default function Header() {
           <a href="/">Inicio</a>
           <a href="/about">Nosotros</a>
           <a href="/gallery">Galería</a>
-          <a href="/history">Historia</a>
           <a href="/category">Categorías</a>
           <a href="/contact">Contáctanos</a>
         </nav>

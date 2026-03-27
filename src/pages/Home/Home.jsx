@@ -4,9 +4,11 @@ import Footer from "../../components/Footer/Footer";
 import { getContenido } from "../../services/api";
 import GalleryPhoto from "../../components/GalleryPhoto/GalleryPhoto";
 import Shedule from "../../components/Shedule/Shedule";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
 export default function Home() {
+  const navigate = useNavigate();
   const [contenido, setContenido] = useState({});
 
   useEffect(() => {
@@ -58,7 +60,14 @@ export default function Home() {
           <p>
             Formamos deportistas con disciplina, valores y pasión por el fútbol.
           </p>
-          <button className="hero-btn">Únete al equipo</button>
+            <a
+          href="https://wa.me/573105127034?text=Hola%20quiero%20información%20sobre%20la%20escuela%20de%20fútbol"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-inscripcion"
+        >
+          Únete al equipo
+        </a>
         </div>
       </section>
 
@@ -84,7 +93,11 @@ export default function Home() {
         <div className="categorias-grid">
           {categorias.map((element, index) => {
             return (
-              <div key={index} className="categoria-card">
+              <div
+                key={index}
+                className="categoria-card"
+                onClick={() => navigate("/category")}
+              >
                 <h3>{element.nombre}</h3>
                 <p>{element.edad}</p>
               </div>
@@ -101,7 +114,14 @@ export default function Home() {
           deportiva. Desarrollamos talento, disciplina y trabajo en equipo.
         </p>
 
-        <button className="btn-inscripcion">Contactar</button>
+        <a
+          href="https://wa.me/573105127034?text=Hola%20quiero%20información%20sobre%20la%20escuela%20de%20fútbol"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-inscripcion"
+        >
+          Contactar por WhatsApp
+        </a>
       </section>
 
       <Footer />

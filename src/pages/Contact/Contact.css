@@ -1,17 +1,96 @@
-.contact-pages {
+.contact-page {
+  background: #f4f6f8;
+  min-height: 100vh;
+}
+
+/* HERO */
+.contact-hero {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/src/assets/img/futbol2.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+/* CONTENEDOR */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* MAPA */
+.contact-map {
   width: 100%;
-  min-height: 100%; /* toda la altura de la ventana */
-  font-family: Arial, sans-serif;
-  background-color: #F5F5F5;
-  box-sizing: border-box;
+  height: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.contact-pages h2 {
+/* INFO */
+.contact-info {
+  background: white;
   color: black;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.main-container {
-  flex: 1; /* ocupa el espacio restante entre header y footer */
-  width: 100%; /* ancho completo */
-  box-sizing: border-box;
+.contact-info p {
+  margin: 10px 0;
+}
+
+/* BOTONES */
+.contact-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+}
+
+.btn-email {
+  background: var(--color-primary);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* HOVER */
+.btn-whatsapp:hover,
+.btn-email:hover {
+  transform: scale(1.05);
+  transition: 0.2s;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-map {
+    height: 300px;
+  }
 }
