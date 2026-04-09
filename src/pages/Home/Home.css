@@ -26,6 +26,10 @@
   font-size: 40px;
 }
 
+.hero-content p {
+  font-size: 29px;
+}
+
 .hero-btn {
   margin-top: 20px;
   padding: 12px 25px;
@@ -46,6 +50,7 @@
 .gallery-section h2 {
   color: var(--color-secondary);
   margin-bottom: 20px;
+  font-size: 32px;
 }
 
 /* GRID INFORMACION */
@@ -60,8 +65,13 @@
   gap: 25px;
 }
 
+.home-main h2  {
+  font-size: 32px;
+}
+
 .home-main p {
   color: black;
+  font-size: 25px;
 }
 
 .home-card {
@@ -94,6 +104,13 @@
   gap: 20px;
 }
 
+.categorias-grid p{
+  font-size: 20px;
+}
+
+.categorias-grid h3{
+  font-size: 25px;
+}
 .categoria-card {
   background: white;
   color: black;
@@ -112,6 +129,13 @@
   color: white;
 }
 
+.inscripciones h2{
+  font-size: 32px;
+}
+
+.inscripciones p {
+  font-size: 25px;
+}
 .btn-inscripcion {
   display: inline-block;
   background: var(--color-secondary);

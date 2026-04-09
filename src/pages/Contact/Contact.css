@@ -55,6 +55,7 @@
 
 .contact-info h2 {
   font-size: 32px;
+  color: var(--color-secondary);
 }
 .contact-info p {
   margin: 10px 0;
@@ -70,7 +71,7 @@
 }
 
 .btn-whatsapp {
-  background: #25d366;
+  background: var(--color-secondary);
   color: white;
   padding: 12px;
   border-radius: 8px;
@@ -94,6 +95,8 @@
 .btn-email:hover {
   transform: scale(1.05);
   transition: 0.2s;
+  background: var(--color-accent);
+  color: white;
 }
 
 /* RESPONSIVE */

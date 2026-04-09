@@ -9,6 +9,7 @@
 .schedule-title{
   color:var(--color-secondary);
   margin-bottom:30px;
+  font-size: 32px;
 }
 
 /* tabla */
@@ -29,6 +30,7 @@
   color:white;
   font-weight:bold;
   padding:15px;
+  font-size: 25px;
 }
 
 /* filas */
@@ -39,6 +41,7 @@
   padding:15px;
   background:white;
   border-bottom:1px solid #eee;
+  font-size: 20px;
 }
 
 .schedule-row:nth-child(even){

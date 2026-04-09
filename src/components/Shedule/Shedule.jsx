@@ -9,7 +9,7 @@ export default function Schedule() {
     },
     {
       dias: "Sabado y Domingo",
-      hora: "8:00 AM - 10:00 AM"
+      hora: "7:30 AM - 10:00 AM"
     },
   ];
 
