@@ -57,6 +57,11 @@
 .category-info h2{
   color:var(--color-primary);
   margin-bottom:10px;
+  font-size: 32px;
+}
+
+.category-info p{
+  font-size: 25px;
 }
 
 .category-age{
@@ -66,4 +71,26 @@
 }
 .category-card.reverse{
   flex-direction: row-reverse;
+}
+
+/* HERO */
+.category-hero{
+  background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  url("/src/assets/img/Equipo1.jpg");
+  width: 100%;
+  background-size:cover;
+  background-position:center;
+
+  color:white;
+  text-align:center;
+  padding:60px 20px;
+}
+
+.category-hero h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.category-hero p{
+  font-size:20px;
 }

@@ -1,51 +1,79 @@
-/* Contenedor principal de la página */
-.gallery-page {
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  min-height: 100vh; /* toda la altura de la ventana */
-  font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
+.gallery-page{
+  background:#f4f6f8;
+  min-height:100vh;
 }
 
-/* Contenedor del contenido principal */
-.gallery-main {
-  flex: 1; /* ocupa el espacio restante entre header y footer */
-  width: 100%; /* ancho completo */
-  padding: 20px;
-  display: grid;
-  background-color: white;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-  box-sizing: border-box;
+/* HERO */
+.gallery-hero{
+  background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  url("/src/assets/img/futbol1.jpg");
+  margin-top: 10px;
+  background-size:cover;
+  background-position:center;
+
+  color:white;
+  text-align:center;
+  padding:60px 20px;
 }
 
-/* Cada tarjeta de imagen */
-.gallery-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #ffffff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.gallery-hero h2{
+  font-size: 32px;
 }
 
-/* Imagen */
-.gallery-item img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+.gallery-hero p {
+  font-size: 25px;
 }
 
-/* Pie de foto */
-.gallery-caption {
-  padding: 10px;
-  font-size: 0.9rem;
-  color: #4a5568;
-  text-align: center;
+/* GRID */
+.gallery-main{
+  padding:40px 20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+  gap:20px;
+  max-width:1200px;
+  margin:auto;
 }
 
-.gallery-photos {
-  width: 100%;
+/* ITEM */
+.gallery-item{
+  position:relative;
+  overflow:hidden;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* IMAGEN */
+.gallery-item img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  transition:0.3s;
+}
+
+/* OVERLAY */
+.overlay{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:100%;
+
+  background:linear-gradient(transparent, rgba(0,0,0,0.7));
+  color:white;
+
+  display:flex;
+  align-items:flex-end;
+  padding:15px;
+
+  opacity:0;
+  transition:0.3s;
+}
+
+/* HOVER */
+.gallery-item:hover img{
+  transform:scale(1.1);
+}
+
+.gallery-item:hover .overlay{
+  opacity:1;
 }

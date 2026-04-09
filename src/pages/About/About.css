@@ -28,6 +28,10 @@
   font-size: 40px;
 }
 
+.about-hero p{
+  font-size: 20px;
+}
+
 /* SECCION HISTORIA */
 
 .about-section {
@@ -44,8 +48,12 @@
 .about-content h2 {
   color: var(--color-secondary);
   margin-bottom: 10px;
+  font-size: 32px;
 }
 
+.about-content p {
+    font-size: 25px;
+}
 /* GRID */
 
 .about-grid {
@@ -64,13 +72,18 @@
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
 }
 
 .about-card h2 {
   color: var(--color-secondary);
   margin-bottom: 10px;
+  font-size: 32px;
 }
 
+.about-card p {
+  font-size: 25px;
+}
 
 /* VALORES */
 
@@ -79,6 +92,10 @@
   text-align: center;
 }
 
+.about-values  h2{
+  font-size: 32px;
+  color: var(--color-secondary);
+}
 .values-grid {
   margin-top: 20px;
 
@@ -93,7 +110,10 @@
   padding: 15px;
   border-radius: 8px;
   font-weight: bold;
+  font-size: 20px;
 }
+
+
 
 .about-card:hover{
   transform:translateY(-5px);

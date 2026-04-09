@@ -1,5 +1,5 @@
 .footer {
-  background: #0b3d91;
+  background: var(--color-primary);
   color: white;
   margin-top: 40px;
 }
@@ -25,7 +25,7 @@
 }
 
 .footer-section h3 {
-  color: #ffd400;
+  color: var(--color-accent);
   margin-bottom: 10px;
 }
 

@@ -11,10 +11,18 @@
 
   background-size: cover;
   background-position: center;
-
+  margin-top: 10px;
   color: white;
   text-align: center;
   padding: 60px 20px;
+}
+
+.contact-hero h2 {
+  font-size: 32px;
+}
+
+.contact-hero p {
+  font-size: 25px;
 }
 
 /* CONTENEDOR */
@@ -45,8 +53,12 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.contact-info h2 {
+  font-size: 32px;
+}
 .contact-info p {
   margin: 10px 0;
+  font-size: 18px;
 }
 
 /* BOTONES */

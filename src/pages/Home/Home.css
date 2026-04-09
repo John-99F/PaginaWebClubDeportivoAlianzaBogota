@@ -44,7 +44,7 @@
 }
 
 .gallery-section h2 {
-  color: #0b3d91;
+  color: var(--color-secondary);
   margin-bottom: 20px;
 }
 
@@ -58,6 +58,10 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 25px;
+}
+
+.home-main p {
+  color: black;
 }
 
 .home-card {
@@ -75,7 +79,7 @@
 /* CATEGORIAS */
 
 .categorias {
-  background: #0b3d91;
+  background: var(--color-secondary);
   color: white;
   padding: 60px 20px;
   text-align: center;
@@ -108,19 +112,19 @@
   color: white;
 }
 
-.btn-inscripcion{
-  display:inline-block;
-  background:var(--color-accent);  
-  color:white;
+.btn-inscripcion {
+  display: inline-block;
+  background: var(--color-secondary);
+  color: white;
   margin-top: 20px;
-  padding:12px 20px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.btn-inscripcion:hover{
-  background:var(--color-secondary);  
+.btn-inscripcion:hover {
+  background: var(--color-accent);
   color: white;
 }
 
@@ -134,4 +138,3 @@
   background: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
-

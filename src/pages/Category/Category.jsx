@@ -1,6 +1,8 @@
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import "./Category.css";
+import Hero from "../../components/Hero/Hero";
+import heroImg from "../../assets/img/Equipo1.jpg";
 
 import sub8 from "../../assets/img/Equipo1.jpg";
 import sub10 from "../../assets/img/Equipo2.jpg";
@@ -28,19 +30,19 @@ export default function Category() {
       descripcion: "Entrenamiento táctico, físico y participación en torneos.",
       imagen: sub13,
     },
-     {
+    {
       nombre: "Pre infantil",
       edad: "(2014 - 2015)",
       descripcion: "Entrenamiento táctico, físico y participación en torneos.",
       imagen: sub13,
     },
-      {
+    {
       nombre: "Infantil",
       edad: "(2012 - 2013)",
       descripcion: "Entrenamiento táctico, físico y participación en torneos.",
       imagen: sub13,
     },
-      {
+    {
       nombre: "Pre Juvenil",
       edad: "(2010 - 2011)",
       descripcion: "Entrenamiento táctico, físico y participación en torneos.",
@@ -52,9 +54,12 @@ export default function Category() {
     <div className="category-page">
       <Header />
 
+      <Hero
+        title="Categorías"
+        subtitle="Formamos jugadores según su edad y nivel ⚽"
+        image={heroImg}
+      />
       <main className="category-main">
-        <h1 className="category-title">Categorías</h1>
-
         {categorias.map((cat, index) => (
           <div
             key={index}

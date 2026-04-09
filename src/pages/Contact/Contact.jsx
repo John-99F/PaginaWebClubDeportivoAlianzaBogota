@@ -49,13 +49,6 @@ export default function Contact() {
             >
               <FaWhatsapp /> WhatsApp
             </a>
-
-            <a
-              href={`mailto:${correo}?subject=Información&body=${encodeURIComponent(mensaje)}`}
-              className="btn-email"
-            >
-              <FaMailBulk /> Enviar correo
-            </a>
           </div>
         </div>
       </section>
