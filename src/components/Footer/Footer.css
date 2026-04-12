@@ -1,5 +1,5 @@
 .footer {
-  background: var(--color-primary);
+  background: linear-gradient(90deg, #0b3d91, #e10600);
   color: white;
   margin-top: 40px;
 }
@@ -31,7 +31,7 @@
 
 .footer-section p {
   margin: 6px 0;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .footer-copy {
@@ -47,6 +47,9 @@
   gap: 10px;
 }
 
+.social-links a {
+  font-size: 18px;
+}
 .social-links h3 {
   color: #ffd400;
 }

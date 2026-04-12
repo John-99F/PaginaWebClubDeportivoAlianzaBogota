@@ -54,6 +54,7 @@
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease-in-out;
+  font-size: 22px;
 }
 
 .header-nav a:hover {

@@ -1,5 +1,6 @@
 import "./Header.css";
 import logo from "../../assets/img/logo.jpeg";
+import dataInfo from "../../services/dataInfo";
 
 export default function Header() {
   return (
@@ -12,11 +13,11 @@ export default function Header() {
         </div>
 
         <nav className="header-nav">
-          <a href="/">Inicio</a>
-          <a href="/about">Nosotros</a>
-          <a href="/gallery">Galería</a>
-          <a href="/category">Categorías</a>
-          <a href="/contact">Contáctanos</a>
+          <a href="/">{dataInfo.header.inicio}</a>
+          <a href="/about">{dataInfo.header.nosotros}</a>
+          <a href="/gallery">{dataInfo.header.galeria}</a>
+          <a href="/category">{dataInfo.header.categoria}</a>
+          <a href="/contact">{dataInfo.header.contactos}</a>
         </nav>
 
       </div>

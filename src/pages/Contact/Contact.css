@@ -71,7 +71,7 @@
 }
 
 .btn-whatsapp {
-  background: var(--color-secondary);
+  background: green;
   color: white;
   padding: 12px;
   border-radius: 8px;
@@ -95,7 +95,7 @@
 .btn-email:hover {
   transform: scale(1.05);
   transition: 0.2s;
-  background: var(--color-accent);
+  background: #2ecc71;
   color: white;
 }
 

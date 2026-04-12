@@ -1,37 +1,41 @@
+import { data } from "react-router-dom";
+import dataInfo from "../../services/dataInfo";
 import "./Footer.css";
 import { FaInstagram, FaFacebook, FaTiktok, FaWhatsapp } from "react-icons/fa";
+
+
 
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-section">
-          <h3>Alianza Bogotá</h3>
+          <h3>{dataInfo.nombreClub}</h3>
           <p>
-            Escuela de formación deportiva enfocada en desarrollar talento y
-            disciplina en el fútbol.
+            {dataInfo.footer.descripcion}
           </p>
         </div>
 
         <div className="footer-section">
           <h3>Enlaces</h3>
-          <p>Inicio</p>
-          <p>Equipo</p>
-          <p>Galería</p>
-          <p>Contacto</p>
+          <p>{dataInfo.header.inicio}</p>
+          <p>{dataInfo.header.nosotros}</p>
+          <p>{dataInfo.header.galeria}</p>
+          <p>{dataInfo.header.categoria}</p>
+          <p>{dataInfo.header.contactos}</p>
         </div>
 
         <div className="footer-section">
           <h3>Contacto</h3>
-          <p>📍Bogotá, Colombia - Cll 82 100a -91</p>
+          <p>{dataInfo.contactos.direccion}</p>
           <a
             href="https://wa.me/573105127034?text=Hola%20quiero%20información%20sobre%20la%20escuela%20de%20fútbol"
             target="_blank"
             rel="noopener noreferrer"
           >
-           <FaWhatsapp /> +57 310 512 7034
+           <FaWhatsapp /> {dataInfo.contactos.telefono}
           </a>
-          <p>✉ info@alianzabogota.com</p>
+          <p>✉ {dataInfo.contactos.correo}</p>
         </div>
 
         <div className="social-links">

@@ -1,4 +1,4 @@
-import data from "./data.json";
+import data from "./dataInfo";
 
 /* Obtener contenido textual */
 export const getContenido = async () => {

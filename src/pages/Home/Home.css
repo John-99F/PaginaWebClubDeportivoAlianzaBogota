@@ -41,7 +41,6 @@
 }
 
 /* GALERIA */
-
 .gallery-section {
   padding: 40px;
   text-align: center;
@@ -65,7 +64,7 @@
   gap: 25px;
 }
 
-.home-main h2  {
+.home-main h2 {
   font-size: 32px;
 }
 
@@ -104,11 +103,11 @@
   gap: 20px;
 }
 
-.categorias-grid p{
+.categorias-grid p {
   font-size: 20px;
 }
 
-.categorias-grid h3{
+.categorias-grid h3 {
   font-size: 25px;
 }
 .categoria-card {
@@ -129,7 +128,7 @@
   color: white;
 }
 
-.inscripciones h2{
+.inscripciones h2 {
   font-size: 32px;
 }
 
@@ -161,4 +160,15 @@
   border-radius: 10px;
   background: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  background: green;
+  color: white;
+  margin-top: 20px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
 }

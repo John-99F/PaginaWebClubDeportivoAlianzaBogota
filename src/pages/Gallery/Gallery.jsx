@@ -4,6 +4,7 @@ import equipo4 from "../../assets/img/Equipo4.jpg";
 import equipo5 from "../../assets/img/Equipo5.jpg";
 import equipo3 from "../../assets/img/Equipo3.jpg";
 import "./Gallery.css";
+import dataInfo from "../../services/dataInfo";
 
 export default function Gallery() {
 
@@ -17,11 +18,9 @@ export default function Gallery() {
     <div className="gallery-page">
 
       <Header />
-
-      {/* HERO */}
       <section className="gallery-hero">
-        <h1>Galería</h1>
-        <p>Momentos destacados de nuestra escuela ⚽</p>
+        <h1>{dataInfo.heroContenido.tituloGallery}</h1>
+        <p>{dataInfo.heroContenido.descripcionGallery}</p>
       </section>
 
       {/* GALERÍA */}

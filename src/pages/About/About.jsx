@@ -1,76 +1,47 @@
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import "./About.css";
+import dataInfo from "../../services/dataInfo";
 
 export default function About() {
-
   return (
     <div className="about-page">
-
       <Header />
 
-      {/* HERO */}
       <section className="about-hero">
-        <h1>Quiénes Somos</h1>
-        <p>
-          Formamos jugadores con pasión, disciplina y valores dentro y fuera de la cancha.
-        </p>
+        <h1>{dataInfo.heroContenido.tituloAbout}</h1>
+        <p>{dataInfo.heroContenido.descripcionAbout}</p>
       </section>
 
-      {/* HISTORIA */}
       <section className="about-section">
         <div className="about-content">
-          <h2>Historia</h2>
-          <p>
-            La Escuela de Fútbol Alianza Bogotá nace con el propósito de brindar
-            a niños y jóvenes un espacio de formación deportiva integral. A lo largo
-            del tiempo, hemos trabajado en el desarrollo de habilidades técnicas y
-            humanas, promoviendo valores como el respeto, la disciplina y el trabajo
-            en equipo.
-          </p>
+          <h2>{dataInfo.contenidoCompleto.tituloHistoria}</h2>
+          <p>{dataInfo.contenidoCompleto.historia}</p>
         </div>
       </section>
 
-      {/* MISION Y VISION */}
       <section className="about-grid">
-
         <div className="about-card">
-          <h2>Misión</h2>
-          <p>
-            Formar deportistas integrales mediante el fútbol, fortaleciendo valores
-            y habilidades que contribuyan a su desarrollo personal y social.
-          </p>
+          <h2>{dataInfo.contenidoCompleto.tituloMision}</h2>
+          <p>{dataInfo.contenidoCompleto.mision}</p>
         </div>
 
         <div className="about-card">
-          <h2>Visión</h2>
-          <p>
-            Ser una escuela líder en formación deportiva, reconocida por su calidad
-            y compromiso con el desarrollo de jóvenes talentos.
-          </p>
+          <h2>{dataInfo.contenidoCompleto.tituloVision}</h2>
+          <p>{dataInfo.contenidoCompleto.vision}</p>
         </div>
-
       </section>
 
-      {/* VALORES */}
       <section className="about-values">
-
-        <h2>Valores</h2>
+        <h2>{dataInfo.contenidoCompleto.tituloValores}</h2>
 
         <div className="values-grid">
-
-          <div className="value-card">⚽ Respeto</div>
-          <div className="value-card">⚽ Disciplina</div>
-          <div className="value-card">⚽ Trabajo en equipo</div>
-          <div className="value-card">⚽ Responsabilidad</div>
-          <div className="value-card">⚽ Superación</div>
-
+          {dataInfo.contenidoCompleto.valores.map((valor) => (
+            <div className="value-card">⚽ {valor}</div>
+          ))}
         </div>
-
       </section>
-
       <Footer />
-
     </div>
   );
 }
