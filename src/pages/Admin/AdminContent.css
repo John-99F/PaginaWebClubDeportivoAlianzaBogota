@@ -1,0 +1,82 @@
+/* CONTENEDOR GENERAL */
+.admin-content {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* TÍTULO */
+.admin-content h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--color-primary);
+}
+
+/* GRID */
+.admin-content-grid {
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* CARD */
+.admin-field {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* LABEL */
+.admin-field label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+  text-transform: capitalize;
+}
+
+/* TEXTAREA */
+.text-area {
+    background: white;
+    color: black;
+  width: 100%;
+  min-height: 120px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid var(--color-secondary);
+  resize: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.text-area:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* BOTÓN */
+.admin-save-btn {
+  display: block;
+  margin: 30px auto 0;
+  background: var(--color-primary);
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.admin-save-btn:hover {
+  transform: scale(1.05);
+  background: #1e6fd9; /* ajusta según tu azul */
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+  .admin-content-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

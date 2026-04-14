@@ -1,84 +1,106 @@
-/* Contenedor principal ocupa toda la pantalla sin provocar scroll horizontal */
-.admin-page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;       /* altura completa */
-  min-width: 99vw;              /* ancho completo, evita scroll horizontal */
-  font-family: Arial, sans-serif;
-  background-color: var(--color-bg);
-  box-sizing: border-box;   /* incluye padding/border en width */
-  overflow-x: hidden;       /* previene scroll horizontal */
+.admin-page{
+  background:#f4f6f8;
+  min-height:100vh;
+
 }
 
-/* Contenido principal */
-.admin-main {
-  flex: 1;                  /* ocupa todo el espacio entre header y footer */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  padding: 20px;
-  box-sizing: border-box;
-  width: 100%;
+/* MAIN */
+.admin-main{
+  max-width:1000px;
+  margin:auto;
+  padding:40px 20px;
+  text-align:center;
 }
 
-/* Título */
-.admin-main h1 {
+.admin-main h1{
   color: var(--color-primary);
-  font-size: 2rem;
-  margin-bottom: 10px;
 }
 
-/* Cada campo del formulario */
-.admin-field {
-  display: flex;
-  flex-direction: column;
-  width: 80%;              /* adaptable al ancho de la pantalla */
-  max-width: 800px;        /* no se estire demasiado en pantallas grandes */
+.admin-main div{
   color: var(--color-secondary);
-  box-sizing: border-box;   /* importante para que el padding no genere scroll */
+}
+.admin-subtitle{
+  color:#666;
+  margin-bottom:30px;
 }
 
-/* Etiqueta de cada campo */
-.admin-field label {
-  font-weight: bold;
-  margin-bottom: 5px;
+/* GRID */
+.admin-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+  gap:20px;
 }
 
-/* Textarea */
-.admin-field textarea {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  resize: vertical;
-  min-height: 80px;
-  box-sizing: border-box;
-  color: #4a5568;
-  background-color: var(--color-bg);
+/* CARD */
+.admin-card{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  text-align:left;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
 }
 
-/* Botón guardar */
-.admin-main button {
-  background-color: var(--color-accent);
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  width: 50%;
-  max-width: 300px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.2s;
+.admin-card h3{
+  margin-bottom:10px;
+  color:var(--color-primary);
 }
 
-.admin-main button:hover {
-  background-color: var(--color-secondary);
+/* TEXTAREA */
+.admin-card textarea{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  resize:none;
 }
 
-/* Mensaje de carga */
-.admin-loading {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #4a5568;
+/* BOTÓN */
+.admin-btn{
+  margin-top:30px;
+  background:var(--color-primary);
+  color:white;
+  padding:12px 25px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.admin-btn:hover{
+  transform:scale(1.05);
+  transition:0.2s;
+}
+
+/* MENSAJE */
+.admin-success{
+  margin-top:15px;
+  color:green;
+  font-weight:bold;
+}
+
+/* LOADING */
+.admin-loading{
+  text-align:center;
+  padding:50px;
+}
+
+.admin-menu{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+
+.admin-option{
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  text-align:center;
+  cursor:pointer;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  font-weight:bold;
+}
+
+.admin-option:hover{
+  transform:scale(1.05);
 }

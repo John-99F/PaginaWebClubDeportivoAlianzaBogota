@@ -1,44 +1,40 @@
-import { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import { getContenido, updateContenido } from "../../services/api";
+import { useNavigate } from "react-router-dom";
 import "./Admin.css";
 
 export default function Admin() {
-  const [contenido, setContenido] = useState({});
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    getContenido().then((res) => {
-      setContenido(res);
-      setLoading(false);
-    });
-  }, []);
-  const handleChange = (e) =>
-    setContenido({ ...contenido, [e.target.name]: e.target.value });
-  const handleSave = async () => {
-    await updateContenido(contenido);
-    alert("Contenido actualizado!");
-  };
-  if (loading) return <p className="admin-loading">Cargando...</p>;
+  const navigate = useNavigate();
+
   return (
     <div className="admin-page">
+
       <Header />
+
       <main className="admin-main">
-        <h1>Dashboard</h1>
-        {["vision", "mision", "historia", "valores"].map((campo) => (
-          <div key={campo} className="admin-field">
-            <label>{campo}</label>
-            <textarea
-              name={campo}
-              value={contenido[campo]}
-              onChange={handleChange}
-              rows={3}
-            />
+
+        <h1>Panel de Administración</h1>
+
+        <div className="admin-menu">
+
+          <div onClick={() => navigate("/admin/contenido")} className="admin-option">
+            📄 Gestionar Contenido
           </div>
-        ))}
-        <button onClick={handleSave}>Guardar Cambios</button>
+
+          <div onClick={() => navigate("/admin/imagenes")} className="admin-option">
+            🖼️ Gestionar Imágenes
+          </div>
+
+          <div onClick={() => navigate("/admin/galeria")} className="admin-option">
+            📸 Galería
+          </div>
+
+        </div>
+
       </main>
+
       <Footer />
+
     </div>
   );
 }

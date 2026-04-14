@@ -15,7 +15,8 @@ import Login from "./pages/Login/login.jsx";
 import Admin from "./pages/Admin/Admin.jsx";
 import Contact from "./pages/Contact/Contact.jsx";
 import Category from "./pages/Category/Category.jsx";
-
+import AdminContent from "./pages/Admin/AdminContent.jsx";
+import AdminImages from "./pages/Admin/AdminImages.jsx";
 // Componente de login simple (puedes personalizarlo)
 
 // Simulación de autenticación
@@ -40,7 +41,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/category" element={<Category />} />
-        {/* Dashboard protegido */}
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/contenido" element={<AdminContent />} />
+        <Route path="/admin/imagenes" element={<AdminImages />} />
         <Route
           path="/admin"
           element={
