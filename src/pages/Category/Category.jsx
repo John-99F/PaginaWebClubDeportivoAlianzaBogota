@@ -2,12 +2,8 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import "./Category.css";
 import Hero from "../../components/Hero/Hero";
-import heroImg from "../../assets/img/Equipo1.jpg";
+import heroImg from "../../assets/img/Equipo7.jpg";
 import data from "../../services/dataInfo";
-
-import sub8 from "../../assets/img/Equipo1.jpg";
-import sub10 from "../../assets/img/Equipo2.jpg";
-import sub13 from "../../assets/img/Equipo3.jpg";
 import dataInfo from "../../services/dataInfo";
 
 export default function Category() {

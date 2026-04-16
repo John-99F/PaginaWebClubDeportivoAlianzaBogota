@@ -31,7 +31,6 @@ export default function Home() {
         <Shedule />
       </section>
       <section className="gallery-section">
-        <h2>Nuestros mejores momentos</h2>
         <GalleryPhoto />
       </section>
 
@@ -58,6 +57,27 @@ export default function Home() {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      <section className="club-info">
+        <div className="club-info-container">
+          {/* IZQUIERDA - IMAGEN */}
+      
+
+          {/* DERECHA - TEXTO */}
+          <div className="club-info-text">
+            <h2>Excelencia deportiva con respaldo oficial</h2>
+            <p>
+              El Club Deportivo Alianza Bogotá es una institución avalada
+              oficialmente por la Liga de Bogotá, garantizando su compromiso con
+              el desarrollo deportivo.
+            </p>
+          </div>
+
+              <div className="club-info-image">
+            <img src="/src/assets/img/Logo_LFB.png" alt="Club Deportivo" />
+          </div>
         </div>
       </section>
 

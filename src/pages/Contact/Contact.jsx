@@ -3,7 +3,8 @@ import Footer from "../../components/Footer/Footer";
 import { FaWhatsapp, FaMailBulk } from "react-icons/fa";
 import "./Contact.css";
 import dataInfo from "../../services/dataInfo";
-import { data } from "react-router-dom";
+import Hero from "../../components/Hero/Hero";
+import heroImg from "../../assets/img/Carpa.jpg";
 
 export default function Contact() {
   const telefono = "573105127034";
@@ -13,10 +14,13 @@ export default function Contact() {
     <div className="contact-page">
       <Header />
 
-      <section className="contact-hero">
-        <h1>{dataInfo.heroContenido.tituloContact}</h1>
-        <p>{dataInfo.heroContenido.descripcionContact}</p>
-      </section>
+      <Hero
+       title={dataInfo.heroContenido.tituloContact}
+        subtitle={dataInfo.heroContenido.descripcionContact}
+        image={heroImg}
+  
+      />
+
 
       <section className="contact-container">
         <div className="contact-map">
