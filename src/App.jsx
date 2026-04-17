@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router, // 👈 CAMBIO CLAVE
   Routes,
   Route,
   Navigate,
@@ -11,6 +11,7 @@ import Home from "./pages/Home/Home.jsx";
 import About from "./pages/About/About.jsx";
 import Gallery from "./pages/Gallery/Gallery.jsx";
 import Login from "./pages/Login/login.jsx";
+
 // Dashboard / Admin
 import Admin from "./pages/Admin/Admin.jsx";
 import Contact from "./pages/Contact/Contact.jsx";
@@ -21,7 +22,6 @@ import AdminImages from "./pages/Admin/AdminImages.jsx";
 
 // Simulación de autenticación
 const isAuthenticated = () => {
-  // Aquí podrías leer un token de localStorage o contexto de auth
   return localStorage.getItem("token") ? true : false;
 };
 
@@ -34,7 +34,6 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Páginas públicas */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/gallery" element={<Gallery />} />
@@ -53,7 +52,7 @@ function App() {
           }
         />
 
-        {/* Ruta por defecto a home si no existe */}
+    
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>

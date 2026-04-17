@@ -48,6 +48,9 @@
   height:250px;
   object-fit:cover;
   transition:0.3s;
+  cursor:pointer;
+  position:relative;
+  z-index:1; /* 👈 asegura que reciba el click */
 }
 
 /* OVERLAY */
@@ -67,6 +70,9 @@
 
   opacity:0;
   transition:0.3s;
+
+  pointer-events: none; /* 👈 🔥 ESTO SOLUCIONA EL PROBLEMA */
+  z-index:2;
 }
 
 /* HOVER */
@@ -76,4 +82,38 @@
 
 .gallery-item:hover .overlay{
   opacity:1;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9); /* más oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* 👈 más alto */
+}
+
+/* IMAGEN GRANDE */
+.modal-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  animation: zoom 0.3s ease; /* 👈 animación */
+}
+
+/* ANIMACIÓN */
+@keyframes zoom {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

@@ -3,16 +3,15 @@
 }
 
 .hero{
-  height:280px;
+  height:230px;
   display:flex;
   justify-content:center;
   align-items:center;
   text-align:center;
-
   background-size:cover;
   background-position:center;
 
-  color:white;
+  color:#f5f5f5;
 }
 
 .hero-content h1{
@@ -21,7 +20,7 @@
 }
 
 .hero-content p{
-  font-size:18px;
+  font-size: 25px
 }
 
 

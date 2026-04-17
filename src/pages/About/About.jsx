@@ -1,42 +1,43 @@
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import Hero from "../../components/Hero/Hero";
+import AboutData from "./AboutInfo";
 import "./About.css";
-import dataInfo from "../../services/dataInfo";
 
 export default function About() {
   return (
     <div className="about-page">
       <Header />
 
-      <section className="about-hero">
-        <h1>{dataInfo.heroContenido.tituloAbout}</h1>
-        <p>{dataInfo.heroContenido.descripcionAbout}</p>
-      </section>
-
+      <Hero
+        title={AboutData.tituloAbout}
+        subtitle={AboutData.descripcionAbout}
+        image={AboutData.imagenAbout}
+      />
       <section className="about-section">
         <div className="about-content">
-          <h2>{dataInfo.contenidoCompleto.tituloHistoria}</h2>
-          <p>{dataInfo.contenidoCompleto.historia}</p>
+          <h2>{AboutData.tituloHistoria}</h2>
+          <p>{AboutData.historia}</p>
         </div>
       </section>
 
       <section className="about-grid">
         <div className="about-card">
-          <h2>{dataInfo.contenidoCompleto.tituloMision}</h2>
-          <p>{dataInfo.contenidoCompleto.mision}</p>
+          <h2>{AboutData.tituloMision}</h2>
+          <p>{AboutData.mision}</p>
         </div>
 
         <div className="about-card">
-          <h2>{dataInfo.contenidoCompleto.tituloVision}</h2>
-          <p>{dataInfo.contenidoCompleto.vision}</p>
+          <h2>{AboutData.tituloVision}</h2>
+          <p>{AboutData.vision}</p>
         </div>
       </section>
 
       <section className="about-values">
-        <h2>{dataInfo.contenidoCompleto.tituloValores}</h2>
+        <h2>{AboutData.tituloValores}</h2>
 
         <div className="values-grid">
-          {dataInfo.contenidoCompleto.valores.map((valor) => (
+          {AboutData.valores.map((valor) => (
             <div className="value-card">⚽ {valor}</div>
           ))}
         </div>

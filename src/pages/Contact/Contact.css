@@ -1,20 +1,6 @@
 .contact-page {
   background: #f4f6f8;
-  min-height: 100vh;
-}
-
-/* HERO */
-.contact-hero {
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/src/assets/img/futbol2.jpg");
-
-  background-size: cover;
-  background-position: center;
-  margin-top: 10px;
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
+  min-height: 100%;
 }
 
 .contact-hero h2 {
@@ -78,6 +64,7 @@
   text-decoration: none;
   font-weight: bold;
   text-align: center;
+  font-size: 22px;
 }
 
 .btn-email {

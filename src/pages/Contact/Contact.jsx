@@ -2,8 +2,8 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { FaWhatsapp, FaMailBulk } from "react-icons/fa";
 import "./Contact.css";
-import dataInfo from "../../services/dataInfo";
-import { data } from "react-router-dom";
+import contactInfo from "./ContactInfo";
+import Hero from "../../components/Hero/Hero";
 
 export default function Contact() {
   const telefono = "573105127034";
@@ -13,10 +13,11 @@ export default function Contact() {
     <div className="contact-page">
       <Header />
 
-      <section className="contact-hero">
-        <h1>{dataInfo.heroContenido.tituloContact}</h1>
-        <p>{dataInfo.heroContenido.descripcionContact}</p>
-      </section>
+      <Hero
+        title={contactInfo.tituloContact}
+        subtitle={contactInfo.descripcionContact}
+        image={contactInfo.imagenContact}
+      />
 
       <section className="contact-container">
         <div className="contact-map">
@@ -31,15 +32,13 @@ export default function Contact() {
         </div>
 
         <div className="contact-info">
-          <h2>{dataInfo.tituloContacto}</h2>
+          <h2>{contactInfo.tituloContact}</h2>
+          <p>{contactInfo.direccion}</p>
           <p>
-            {dataInfo.contactos.direccion}
+            <FaWhatsapp /> {contactInfo.telefono}
           </p>
           <p>
-            <FaWhatsapp /> {dataInfo.contactos.telefono}
-          </p>
-          <p>
-            <FaMailBulk /> {dataInfo.contactos.correo}
+            <FaMailBulk /> {contactInfo.correo}
           </p>
 
           <div className="contact-buttons">
@@ -49,7 +48,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="btn-whatsapp"
             >
-              <FaWhatsapp /> WhatsApp
+              <FaWhatsapp /> {contactInfo.btnWhatsapp}
             </a>
           </div>
         </div>
