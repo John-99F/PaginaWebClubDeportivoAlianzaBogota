@@ -3,7 +3,8 @@ import Footer from "../../components/Footer/Footer";
 import GalleryPhoto from "../../components/GalleryPhoto/GalleryPhoto";
 import Shedule from "../../components/Shedule/Shedule";
 import { useNavigate } from "react-router-dom";
-import dataInfo from "../../services/dataInfo";
+import homeInfo from "./HomeInfo";
+import logoLFB from "../../assets/img/Logo_LFB.png";
 import "./Home.css";
 
 export default function Home() {
@@ -14,15 +15,15 @@ export default function Home() {
 
       <section className="hero">
         <div className="hero-content">
-          <h1>{dataInfo.heroContenido.tituloHome}</h1>
-          <p>{dataInfo.heroContenido.descripcionHome} </p>
+          <h1>{homeInfo.tituloHome}</h1>
+          <p>{homeInfo.descripcionHome} </p>
           <a
             href="https://wa.me/573105127034?text=Hola%20quiero%20información%20sobre%20la%20escuela%20de%20fútbol"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-inscripcion"
           >
-            Únete al equipo
+            {homeInfo.textoBotonUnete}
           </a>
         </div>
       </section>
@@ -35,7 +36,7 @@ export default function Home() {
       </section>
 
       <main className="home-main">
-        {dataInfo.contenido.map((c) => (
+        {homeInfo.contenido.map((c) => (
           <section key={c} className="home-card">
             <h2>{c.titulo.charAt(0).toUpperCase() + c.titulo.slice(1)}</h2>
             <p>{c.descripcion}</p>
@@ -44,16 +45,17 @@ export default function Home() {
       </main>
 
       <section className="categorias">
-        <h2> Nuestras categorías de formación</h2>
+        <h2>{homeInfo.tituloCategorias}</h2>
         <div className="categorias-grid">
-          {dataInfo.categorias.map((element, index) => {
+          {homeInfo.categorias.map((element, index) => {
             return (
               <div
                 key={index}
                 className="categoria-card"
                 onClick={() => navigate("/category")}
               >
-                <h3>{element.nombre}</h3>
+                <h3>{element.edad} :</h3>
+                <h3>{element.categoria}</h3>
               </div>
             );
           })}
@@ -62,40 +64,27 @@ export default function Home() {
 
       <section className="club-info">
         <div className="club-info-container">
-          {/* IZQUIERDA - IMAGEN */}
-      
-
-          {/* DERECHA - TEXTO */}
           <div className="club-info-text">
-            <h2>Excelencia deportiva con respaldo oficial</h2>
-            <p>
-              El Club Deportivo Alianza Bogotá es una institución avalada
-              oficialmente por la Liga de Bogotá, garantizando su compromiso con
-              el desarrollo deportivo.
-            </p>
+            <h2>{homeInfo.afiliacionTitulo}</h2>
+            <p>{homeInfo.afiliacion}</p>
           </div>
 
-              <div className="club-info-image">
-            <img src="/src/assets/img/Logo_LFB.png" alt="Club Deportivo" />
+          <div className="club-info-image">
+            <img src={logoLFB} alt="Club Deportivo" />
           </div>
         </div>
       </section>
 
       <section className="inscripciones">
-        <h2>Inscripciones abiertas</h2>
-
-        <p>
-          Inscribe a tu hijo y haz parte de nuestra escuela de formación
-          deportiva. Desarrollamos talento, disciplina y trabajo en equipo.
-        </p>
-
+        <h2>{homeInfo.inscripcionesTitulo}</h2>
+        <p>{homeInfo.inscripcionesDescripcion}</p>
         <a
           href="https://wa.me/573105127034?text=Hola%20quiero%20información%20sobre%20la%20escuela%20de%20fútbol"
           target="_blank"
           rel="noopener noreferrer"
           className="btn-whatsapp"
         >
-          Contactar por WhatsApp
+          {homeInfo.textoBotonWhatsapp}
         </a>
       </section>
 

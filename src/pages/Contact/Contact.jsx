@@ -2,9 +2,8 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { FaWhatsapp, FaMailBulk } from "react-icons/fa";
 import "./Contact.css";
-import dataInfo from "../../services/dataInfo";
+import contactInfo from "./ContactInfo";
 import Hero from "../../components/Hero/Hero";
-import heroImg from "../../assets/img/Carpa.jpg";
 
 export default function Contact() {
   const telefono = "573105127034";
@@ -15,12 +14,10 @@ export default function Contact() {
       <Header />
 
       <Hero
-       title={dataInfo.heroContenido.tituloContact}
-        subtitle={dataInfo.heroContenido.descripcionContact}
-        image={heroImg}
-  
+        title={contactInfo.tituloContact}
+        subtitle={contactInfo.descripcionContact}
+        image={contactInfo.imagenContact}
       />
-
 
       <section className="contact-container">
         <div className="contact-map">
@@ -35,15 +32,13 @@ export default function Contact() {
         </div>
 
         <div className="contact-info">
-          <h2>{dataInfo.tituloContacto}</h2>
+          <h2>{contactInfo.tituloContact}</h2>
+          <p>{contactInfo.direccion}</p>
           <p>
-            {dataInfo.contactos.direccion}
+            <FaWhatsapp /> {contactInfo.telefono}
           </p>
           <p>
-            <FaWhatsapp /> {dataInfo.contactos.telefono}
-          </p>
-          <p>
-            <FaMailBulk /> {dataInfo.contactos.correo}
+            <FaMailBulk /> {contactInfo.correo}
           </p>
 
           <div className="contact-buttons">
@@ -53,7 +48,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="btn-whatsapp"
             >
-              <FaWhatsapp /> WhatsApp
+              <FaWhatsapp /> {contactInfo.btnWhatsapp}
             </a>
           </div>
         </div>

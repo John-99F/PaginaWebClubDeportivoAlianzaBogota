@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./GalleryPhoto.css";
 import futbol1 from "../../assets/img/futbol1.jpg";
 import futbol2 from "../../assets/img/futbol2.jpg";
-import futbol3 from "../../assets/img/futbol3.jpg";
+import futbol3 from "../../assets/img/Futbol3.jpg";
 
 export default function GalleryPhoto() {
   const images = [futbol1, futbol2, futbol3];

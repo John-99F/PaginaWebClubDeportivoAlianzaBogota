@@ -1,18 +1,18 @@
 import "./Schedule.css";
-import dataInfo from "../../services/dataInfo";
+import SheduleInfo from "./SheduleInfo";
 
 export default function Schedule() {
   return (
     <section className="schedule">
-      <h2 className="schedule-title">Nuestros horarios de entrenamiento</h2>
+      <h2 className="schedule-title">{SheduleInfo.titulo}</h2>
 
       <div className="schedule-table">
         <div className="schedule-header">
-          <span>Días</span>
-          <span>Horario</span>
+          <span>{SheduleInfo.tituloDia}</span>
+          <span>{SheduleInfo.tituloHora}</span>
         </div>
 
-        {dataInfo.horarios.map((h, index) => (
+        {SheduleInfo.horarios.map((h, index) => (
           <div key={index} className="schedule-row">
             <span>{h.dias}</span>
             <span>{h.hora}</span>

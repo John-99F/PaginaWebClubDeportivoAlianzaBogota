@@ -2,9 +2,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import "./Category.css";
 import Hero from "../../components/Hero/Hero";
-import heroImg from "../../assets/img/Equipo7.jpg";
-import data from "../../services/dataInfo";
-import dataInfo from "../../services/dataInfo";
+import categoryData from "./CategoryInfo";
 
 export default function Category() {
   return (
@@ -12,12 +10,12 @@ export default function Category() {
       <Header />
 
       <Hero
-        title={dataInfo.heroContenido.tituloCategory}
-        subtitle={dataInfo.heroContenido.descripcionCategory}
-        image={heroImg}
+        title={categoryData.tituloCategory}
+        subtitle={categoryData.descripcionCategory}
+        image={categoryData.imagenCategoria}
       />
       <main className="category-main">
-        {data.categorias.map((cat, index) => (
+        {categoryData.categorias.map((cat, index) => (
           <div
             key={index}
             className={`category-card ${index % 2 === 1 ? "reverse" : ""}`}

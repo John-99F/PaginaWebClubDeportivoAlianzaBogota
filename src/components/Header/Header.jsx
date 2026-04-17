@@ -1,27 +1,26 @@
 import "./Header.css";
 import logo from "../../assets/img/logo.jpeg";
-import dataInfo from "../../services/dataInfo";
+import { Link } from "react-router-dom"; // 👈 IMPORTANTE
+import HeaderInfo from "./HeaderInfo";
 
 export default function Header() {
   return (
     <header className="header">
-
       <div className="header-container">
-
         <div className="header-logo">
-          <img src={logo} alt="Escudo Alianza Bogotá" />
+          <Link to="/">
+            <img src={logo} alt="Escudo Alianza Bogotá" />
+          </Link>
         </div>
 
         <nav className="header-nav">
-          <a href="/">{dataInfo.header.inicio}</a>
-          <a href="/about">{dataInfo.header.nosotros}</a>
-          <a href="/gallery">{dataInfo.header.galeria}</a>
-          <a href="/category">{dataInfo.header.categoria}</a>
-          <a href="/contact">{dataInfo.header.contactos}</a>
+          <Link to="/">{HeaderInfo.inicio}</Link>
+          <Link to="/about">{HeaderInfo.nosotros}</Link>
+          <Link to="/gallery">{HeaderInfo.galeria}</Link>
+          <Link to="/category">{HeaderInfo.categoria}</Link>
+          <Link to="/contact">{HeaderInfo.contactos}</Link>
         </nav>
-
       </div>
-
     </header>
   );
 }
