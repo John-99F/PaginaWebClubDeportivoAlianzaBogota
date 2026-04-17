@@ -1,8 +1,15 @@
 const homeData = {
-  afiliacionTitulo: "Excelencia deportiva con afiliación oficial",
-  afiliacion:
-    "El Club Deportivo Alianza Bogotá cuenta con afiliación oficial a la Liga de Bogotá, reafirmando su compromiso con el desarrollo deportivo.",
-  contenido: [
+  Hero: {
+      tituloHome: "Club Deportivo Alianza Bogotá ⚽",
+  descripcionHome:
+    "Formamos jugadores con corazón y disciplina, comprometidos con su desarrollo tanto en el campo como en la vida.",
+  },
+  sectionAfiliacion: {
+      afiliacionTitulo: "Excelencia deportiva con afiliación oficial",
+    afiliacion:
+      "El Club Deportivo Alianza Bogotá cuenta con afiliación oficial a la Liga de Bogotá, reafirmando su compromiso con el desarrollo deportivo.",
+  },
+  sectionContenido: [
     {
       titulo: "Visión",
       descripcion:
@@ -21,16 +28,9 @@ const homeData = {
       descripcion: "Respeto, disciplina, trabajo en equipo.",
     },
   ],
-  tituloCategorias: "Nuestras categorías de formación",
-  inscripcionesTitulo: "Inscripciones abiertas",
-  inscripcionesDescripcion:
-    " Inscribe a tu hijo y haz parte de nuestra escuela de formación deportiva. Desarrollamos talento, disciplina y trabajo en equipo.",
-  textoBotonUnete: " Únete al equipo",
-  textoBotonWhatsapp: "Contactar por WhatsApp",
-  tituloHome: "Club Deportivo Alianza Bogotá ⚽",
-  descripcionHome:
-    "Formamos jugadores con corazón y disciplina, comprometidos con su desarrollo tanto en el campo como en la vida.",
-  categorias: [
+  sectionCategorias: {
+     tituloCategorias: "Nuestras categorías de formación",
+      categorias: [
     {
       edad: "2020 - 2021",
       categoria: "baby",
@@ -56,6 +56,16 @@ const homeData = {
       categoria: "Pre Juvenil",
     },
   ],
+  }, 
+  sectionInscripciones: {
+ inscripcionesTitulo: "Inscripciones abiertas",
+  inscripcionesDescripcion:
+    " Inscribe a tu hijo y haz parte de nuestra escuela de formación deportiva. Desarrollamos talento, disciplina y trabajo en equipo.",
+  },
+  botones: {
+  textoBotonUnete: " Únete al equipo",
+  textoBotonWhatsapp: "Contactar por WhatsApp",
+  } 
 };
 
 export default homeData;

@@ -6,35 +6,46 @@ import "./Admin.css";
 export default function Admin() {
   const navigate = useNavigate();
 
+  const opciones = [
+    {
+      ruta: "/admin/contenido",
+      icono: "📄",
+      texto: "Gestionar Contenido",
+    },
+    {
+      ruta: "/admin/imagenes",
+      icono: "🖼️",
+      texto: "Gestionar Imágenes",
+    },
+    {
+      ruta: "/admin/galeria",
+      icono: "📸",
+      texto: "Galería",
+    },
+  ];
+
   return (
     <div className="admin-page">
-
       <Header />
 
       <main className="admin-main">
-
         <h1>Panel de Administración</h1>
 
         <div className="admin-menu">
-
-          <div onClick={() => navigate("/admin/contenido")} className="admin-option">
-            📄 Gestionar Contenido
-          </div>
-
-          <div onClick={() => navigate("/admin/imagenes")} className="admin-option">
-            🖼️ Gestionar Imágenes
-          </div>
-
-          <div onClick={() => navigate("/admin/galeria")} className="admin-option">
-            📸 Galería
-          </div>
-
+          {opciones.map((op, index) => (
+            <button
+              key={index}
+              className="admin-option"
+              onClick={() => navigate(op.ruta)}
+            >
+              <span className="admin-icon">{op.icono}</span>
+              <span>{op.texto}</span>
+            </button>
+          ))}
         </div>
-
       </main>
 
       <Footer />
-
     </div>
   );
 }

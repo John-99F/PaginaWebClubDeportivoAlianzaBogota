@@ -7,11 +7,14 @@ import Equipó5 from "../../assets/img/Equipo5.jpg";
 import Equipo6 from "../../assets/img/Equipo6.jpg";
 
 const categoryData = {
-  tituloCategory: "Categorías",
-  descripcionCategory: "Formamos jugadores según su edad y nivel ⚽",
-  imagenCategoria: heroImg,
+  hero: {
+    tituloCategory: "Categorías",
+    descripcionCategory: "Formamos jugadores según su edad y nivel ⚽",
+    imagenCategoria: heroImg,
+  },
+  
   categorias: [
-    {
+   {
       nombre: "2020 - 2021: Baby",
       edad: "2020 - 2021",
       categoria: "baby",
