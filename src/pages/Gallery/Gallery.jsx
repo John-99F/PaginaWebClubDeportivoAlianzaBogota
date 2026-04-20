@@ -13,9 +13,9 @@ export default function Gallery() {
       <Header />
 
       <Hero
-        title={GalleryData.tituloGallery}
-        subtitle={GalleryData.descripcionGallery}
-        image={GalleryData.imagenHero}
+        title={GalleryData.hero.tituloGallery}
+        subtitle={GalleryData.hero.descripcionGallery}
+        image={GalleryData.hero.imagenHero}
       />
 
       <main className="gallery-main">

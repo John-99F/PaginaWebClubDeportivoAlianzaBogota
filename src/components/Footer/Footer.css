@@ -27,12 +27,24 @@
 .footer-section h3 {
   color: var(--color-accent);
   margin-bottom: 10px;
+  font-size: 22px;
 }
 
 .footer-section p {
   margin: 6px 0;
-  font-size: 18px;
+  font-size: 20px;
 }
+
+.footer-section-nav {
+  margin: 6px 0;
+  font-size: 19px;
+   margin: auto;
+  padding: 2px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
 
 .footer-copy {
   text-align: center;
@@ -48,8 +60,9 @@
 }
 
 .social-links a {
-  font-size: 18px;
+  font-size: 20px;
 }
 .social-links h3 {
   color: #ffd400;
+  font-size: 22px;
 }

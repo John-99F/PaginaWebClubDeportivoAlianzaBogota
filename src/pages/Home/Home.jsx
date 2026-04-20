@@ -9,21 +9,22 @@ import "./Home.css";
 
 export default function Home() {
   const navigate = useNavigate();
+  const format = (text) => text.toLowerCase().replace(/\s+/g, "-");
   return (
     <div className="home-page">
       <Header />
 
       <section className="hero">
         <div className="hero-content">
-          <h1>{homeInfo.tituloHome}</h1>
-          <p>{homeInfo.descripcionHome} </p>
+          <h1>{homeInfo.Hero.tituloHome}</h1>
+          <p>{homeInfo.Hero.descripcionHome} </p>
           <a
             href="https://wa.me/573105127034?text=Hola%20quiero%20información%20sobre%20la%20escuela%20de%20fútbol"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-inscripcion"
           >
-            {homeInfo.textoBotonUnete}
+            {homeInfo.botones.textoBotonUnete}
           </a>
         </div>
       </section>
@@ -36,8 +37,15 @@ export default function Home() {
       </section>
 
       <main className="home-main">
-        {homeInfo.contenido.map((c) => (
-          <section key={c} className="home-card">
+        {homeInfo.sectionContenido.map((c) => (
+          <section
+            key={c}
+            className="home-card"
+            onClick={() => {
+              navigate("/about");
+              window.scrollTo(0, 0);
+            }}
+          >
             <h2>{c.titulo.charAt(0).toUpperCase() + c.titulo.slice(1)}</h2>
             <p>{c.descripcion}</p>
           </section>
@@ -45,14 +53,17 @@ export default function Home() {
       </main>
 
       <section className="categorias">
-        <h2>{homeInfo.tituloCategorias}</h2>
+        <h2>{homeInfo.sectionCategorias.tituloCategorias}</h2>
         <div className="categorias-grid">
-          {homeInfo.categorias.map((element, index) => {
+          {homeInfo.sectionCategorias.categorias.map((element, index) => {
             return (
               <div
                 key={index}
                 className="categoria-card"
-                onClick={() => navigate("/category")}
+                onClick={() => {
+                  console.log(element.categoria);
+                  navigate(`/category/${format(element.categoria)}`);
+                }}
               >
                 <h3>{element.edad} :</h3>
                 <h3>{element.categoria}</h3>
@@ -65,8 +76,8 @@ export default function Home() {
       <section className="club-info">
         <div className="club-info-container">
           <div className="club-info-text">
-            <h2>{homeInfo.afiliacionTitulo}</h2>
-            <p>{homeInfo.afiliacion}</p>
+            <h2>{homeInfo.sectionAfiliacion.afiliacionTitulo}</h2>
+            <p>{homeInfo.sectionAfiliacion.afiliacion}</p>
           </div>
 
           <div className="club-info-image">
@@ -76,15 +87,15 @@ export default function Home() {
       </section>
 
       <section className="inscripciones">
-        <h2>{homeInfo.inscripcionesTitulo}</h2>
-        <p>{homeInfo.inscripcionesDescripcion}</p>
+        <h2>{homeInfo.sectionInscripciones.inscripcionesTitulo}</h2>
+        <p>{homeInfo.sectionInscripciones.inscripcionesDescripcion}</p>
         <a
           href="https://wa.me/573105127034?text=Hola%20quiero%20información%20sobre%20la%20escuela%20de%20fútbol"
           target="_blank"
           rel="noopener noreferrer"
           className="btn-whatsapp"
         >
-          {homeInfo.textoBotonWhatsapp}
+          {homeInfo.botones.textoBotonWhatsapp}
         </a>
       </section>
 

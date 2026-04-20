@@ -40,6 +40,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/category" element={<Category />} />
+        <Route path="/category/:categoria" element={<Category />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/contenido" element={<AdminContent />} />
         <Route path="/admin/imagenes" element={<AdminImages />} />
@@ -52,7 +53,6 @@ function App() {
           }
         />
 
-    
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>

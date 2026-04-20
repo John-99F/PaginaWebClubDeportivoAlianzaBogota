@@ -14,9 +14,9 @@ export default function Contact() {
       <Header />
 
       <Hero
-        title={contactInfo.tituloContact}
-        subtitle={contactInfo.descripcionContact}
-        image={contactInfo.imagenContact}
+        title={contactInfo.hero.tituloContact}
+        subtitle={contactInfo.hero.descripcionContact}
+        image={contactInfo.hero.imagenContact}
       />
 
       <section className="contact-container">
@@ -32,13 +32,13 @@ export default function Contact() {
         </div>
 
         <div className="contact-info">
-          <h2>{contactInfo.tituloContact}</h2>
-          <p>{contactInfo.direccion}</p>
+          <h2>{contactInfo.hero.tituloContact}</h2>
+          <p>{contactInfo.info.direccion}</p>
           <p>
-            <FaWhatsapp /> {contactInfo.telefono}
+            <FaWhatsapp /> {contactInfo.info.telefono}
           </p>
           <p>
-            <FaMailBulk /> {contactInfo.correo}
+            <FaMailBulk /> {contactInfo.info.correo}
           </p>
 
           <div className="contact-buttons">
@@ -48,7 +48,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="btn-whatsapp"
             >
-              <FaWhatsapp /> {contactInfo.btnWhatsapp}
+              <FaWhatsapp /> {contactInfo.info.btnWhatsapp}
             </a>
           </div>
         </div>

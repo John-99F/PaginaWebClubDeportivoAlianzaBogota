@@ -158,7 +158,6 @@ const renderField = (key, value) => {
           ))}
         </aside>
 
-        {/* 🔹 EDITOR */}
         <div className="admin-editor">
           <h3>{moduloActivo.toUpperCase()}</h3>
 

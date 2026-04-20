@@ -15,10 +15,18 @@ export default function Header() {
 
         <nav className="header-nav">
           <Link to="/">{HeaderInfo.inicio}</Link>
-          <Link to="/about">{HeaderInfo.nosotros}</Link>
-          <Link to="/gallery">{HeaderInfo.galeria}</Link>
-          <Link to="/category">{HeaderInfo.categoria}</Link>
-          <Link to="/contact">{HeaderInfo.contactos}</Link>
+          <Link to="/about" onClick={window.scrollTo(0, 0)}>
+            {HeaderInfo.nosotros}
+          </Link>
+          <Link to="/gallery" onClick={window.scrollTo(0, 0)}>
+            {HeaderInfo.galeria}
+          </Link>
+          <Link to="/category" onClick={window.scrollTo(0, 0)}>
+            {HeaderInfo.categoria}
+          </Link>
+          <Link to="/contact" onClick={window.scrollTo(0, 0)}>
+            {HeaderInfo.contactos}
+          </Link>
         </nav>
       </div>
     </header>

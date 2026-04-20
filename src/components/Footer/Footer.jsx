@@ -1,6 +1,8 @@
 import "./Footer.css";
 import { FaInstagram, FaFacebook, FaTiktok, FaWhatsapp } from "react-icons/fa";
 import FooterInfo from "./FooterInfo";
+import { Link } from "react-router-dom";
+
 
 export default function Footer() {
   return (
@@ -13,13 +15,13 @@ export default function Footer() {
 
         <div className="footer-section">
           <h3>{FooterInfo.tituloEnlaces}</h3>
-          <p>{FooterInfo.enlaces.inicio}</p>
-          <p>{FooterInfo.enlaces.nosotros}</p>
-          <p>{FooterInfo.enlaces.galeria}</p>
-          <p>{FooterInfo.enlaces.categoria}</p>
-          <p>{FooterInfo.enlaces.contactos}</p>
-        </div>
 
+          <Link className="footer-section-nav" to="/">{FooterInfo.enlaces.inicio}</Link>
+          <Link className="footer-section-nav" to="/about">{FooterInfo.enlaces.nosotros}</Link>
+          <Link className="footer-section-nav" to="/gallery">{FooterInfo.enlaces.galeria}</Link>
+          <Link className="footer-section-nav" to="/category">{FooterInfo.enlaces.categoria}</Link>
+          <Link className="footer-section-nav" to="/contact">{FooterInfo.enlaces.contactos}</Link>
+        </div>
         <div className="footer-section">
           <h3>{FooterInfo.tituloContacto}</h3>
           <p>{FooterInfo.direccion}</p>
@@ -36,7 +38,7 @@ export default function Footer() {
         <div className="social-links">
           <h3>{FooterInfo.tituloSiguenos}</h3>
           <a
-            href= {FooterInfo.redesSociales.instagram.url}
+            href={FooterInfo.redesSociales.instagram.url}
             target="_blank"
             rel="noopener noreferrer"
           >
