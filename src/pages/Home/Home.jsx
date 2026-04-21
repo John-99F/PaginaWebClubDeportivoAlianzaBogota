@@ -6,10 +6,15 @@ import { useNavigate } from "react-router-dom";
 import homeInfo from "./HomeInfo";
 import logoLFB from "../../assets/img/Logo_LFB.png";
 import "./Home.css";
+import { useEffect } from "react";
+import { testConnection } from "../../services/testFirebase";
 
 export default function Home() {
   const navigate = useNavigate();
   const format = (text) => text.toLowerCase().replace(/\s+/g, "-");
+  useEffect(() => {
+    testConnection();
+  }, []);
   return (
     <div className="home-page">
       <Header />

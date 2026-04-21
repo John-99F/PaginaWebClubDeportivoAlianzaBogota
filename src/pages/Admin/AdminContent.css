@@ -222,3 +222,26 @@
   background: #0b3d91;
   color: #fff;
 }
+
+.admin-preview-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+.image-upload-container {
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px dashed #bbb;
+}
+
+.admin-field-sub {
+    margin-left: 20px;
+    border-left: 2px solid #eee;
+    padding-left: 10px;
+}

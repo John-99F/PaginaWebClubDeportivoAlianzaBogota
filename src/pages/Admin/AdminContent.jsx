@@ -1,151 +1,239 @@
 import { useEffect, useState } from "react";
-import homeData from "../Home/HomeInfo";
-import AboutData from "../About/AboutInfo";
-import categoryData from "../Category/CategoryInfo";
-import GalleryData from "../Gallery/GalleryInfo";
-import contactInfo from "../Contact/ContactInfo";
-import SheduleInfo from "../../components/Shedule/SheduleInfo";
-// luego puedes importar más:
-// import nosotrosData from "...";
-// import galeriaData from "...";
+import {
+  getCollection,
+  getDocument,
+  updateDocById,
+  uploadFile, // <--- Importa tu función de carga
+} from "../../services/firestore";
 
 import "./AdminContent.css";
-import FooterInfo from "../../components/Footer/FooterInfo";
 
 const MODULOS = {
-  inicio: homeData,
-  nosotros: AboutData,
-  categorias: categoryData,
-  conocemos: GalleryData,
-  contacto: contactInfo,
-  PieDePagina: FooterInfo,
-  horarios: SheduleInfo,
+  inicio: { type: "collection", collection: "home" },
+  contenido: { type: "collection", collection: "contenido" },
+  categorias: { type: "collection", collection: "categorias" },
+  conocemos: { type: "collection", collection: "galeria" },
+  botones: { type: "collection", collection: "boton" },
+  portada: { type: "collection", collection: "hero" },
+  horarios: { type: "collection", collection: "horario" },
 };
 
 export default function AdminContent() {
   const [moduloActivo, setModuloActivo] = useState("inicio");
-  const [contenido, setContenido] = useState({});
+  const [contenido, setContenido] = useState([]);
   const [abiertos, setAbiertos] = useState({});
+  const [cargandoImagen, setCargandoImagen] = useState(false);
 
   useEffect(() => {
-    setContenido(MODULOS[moduloActivo]);
+    const fetchData = async () => {
+      const config = MODULOS[moduloActivo];
+      let data = await (config.type === "collection"
+        ? getCollection(config.collection)
+        : getDocument(config.collection, config.doc));
+
+      setContenido(
+        config.type === "doc" ? [{ id: config.doc, ...data }] : data || [],
+      );
+    };
+    fetchData();
   }, [moduloActivo]);
 
-  // 🔹 Cambios simples
-  const handleChange = (key, value) => {
-    setContenido((prev) => ({
-      ...prev,
-      [key]: value,
-    }));
+  const toggleSeccion = (id) => {
+    setAbiertos((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  // 🔹 Cambios en arrays
-  const handleArrayChange = (key, index, field, value) => {
-    const updated = [...contenido[key]];
-    updated[index][field] = value;
-
-    setContenido((prev) => ({
-      ...prev,
-      [key]: updated,
-    }));
+  const handleChangeDoc = (docId, key, value) => {
+    const updated = contenido.map((item) =>
+      item.id === docId ? { ...item, [key]: value } : item,
+    );
+    setContenido(updated);
   };
 
-  const toggleSeccion = (key) => {
-  setAbiertos((prev) => ({
-    ...prev,
-    [key]: !prev[key],
-  }));
-};
-  // 🔹 Render dinámico
-const renderField = (key, value) => {
-  const abierto = abiertos[key];
+  // --- Nueva función para manejar la subida de imágenes ---
+  const handleImageUpload = async (
+    docId,
+    key,
+    file,
+    isArray = false,
+    index = null,
+  ) => {
+    if (!file) return;
+    try {
+      setCargandoImagen(true);
+      const url = await uploadFile(file); // Sube a Storage y obtiene URL
 
-  return (
-    <div key={key} className="admin-section">
-      <div
-        className="admin-section-header"
-        onClick={() => toggleSeccion(key)}
-      >
-        <h4>{key}</h4>
-        <span>{abierto ? "−" : "+"}</span>
-      </div>
+      if (isArray) {
+        const updatedDoc = contenido.find((item) => item.id === docId);
+        const updatedArray = [...updatedDoc[key]];
+        updatedArray[index] = {
+          ...updatedArray[index],
+          [Object.keys(updatedArray[index])[0]]: url,
+        }; // Ajustar según estructura
+        handleChangeDoc(docId, key, updatedArray);
+      } else {
+        handleChangeDoc(docId, key, url);
+      }
+      alert("Imagen subida con éxito");
+    } catch (error) {
+      console.error(error);
+      alert("Error al subir imagen");
+    } finally {
+      setCargandoImagen(false);
+    }
+  };
 
-      {abierto && (
-        <div className="admin-section-body">
+  const renderDocumento = (docItem) => {
+    const abierto = abiertos[docItem.id];
 
-          {/* 🔸 OBJETO */}
-          {typeof value === "object" && !Array.isArray(value) && (
-            Object.entries(value).map(([subKey, subValue]) => (
-              <div key={subKey} className="admin-field">
-                <label>{subKey}</label>
-                <textarea
-                  value={subValue || ""}
-                  onChange={(e) => {
-                    setContenido((prev) => ({
-                      ...prev,
-                      [key]: {
-                        ...prev[key],
-                        [subKey]: e.target.value,
-                      },
-                    }));
-                  }}
-                />
-              </div>
-            ))
-          )}
+    return (
+      <div key={docItem.id} className="admin-section">
+        <div
+          className="admin-section-header"
+          onClick={() => toggleSeccion(docItem.id)}
+        >
+          <h4>{docItem.id}</h4>
+          <span>{abierto ? "−" : "+"}</span>
+        </div>
 
-          {/* 🔸 ARRAY */}
-          {Array.isArray(value) && (
-            <div className="admin-array">
-              {value.map((item, index) => (
-                <div key={index} className="admin-array-item">
-                  {Object.keys(item).map((field) => (
-                    <input
-                      key={field}
-                      value={item[field]}
-                      placeholder={field}
+        {abierto && (
+          <div className="admin-section-body">
+            {Object.entries(docItem).map(([key, value]) => {
+              if (key === "id") return null;
+
+              // Lógica para detectar si es campo de imagen
+              const isImageField =
+                key.toLowerCase().includes("img") ||
+                key.toLowerCase().includes("foto") ||
+                key.toLowerCase().includes("url") ||
+                key.toLowerCase().includes("imagen") ||
+                key.toLowerCase().includes("fondo");
+
+              return (
+                <div key={key} className="admin-field">
+                  <label>{key}</label>
+
+                  {/* 🔸 INPUT DE IMAGEN (Si detecta palabras clave) */}
+                  {isImageField && typeof value === "string" && (
+                    <div className="image-upload-container">
+                      {value && (
+                        <img
+                          src={value}
+                          alt="Preview"
+                          className="admin-preview-img"
+                        />
+                      )}
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) =>
+                          handleImageUpload(docItem.id, key, e.target.files[0])
+                        }
+                      />
+                      {cargandoImagen && <small>Subiendo...</small>}
+                    </div>
+                  )}
+
+                  {/* 🔸 TEXTAREA (Solo si NO es imagen) */}
+                  {typeof value === "string" && !isImageField && (
+                    <textarea
+                      value={value}
                       onChange={(e) =>
-                        handleArrayChange(key, index, field, e.target.value)
+                        handleChangeDoc(docItem.id, key, e.target.value)
                       }
                     />
-                  ))}
+                  )}
+
+                  {/* 🔸 OBJETO */}
+                  {typeof value === "object" &&
+                    !Array.isArray(value) &&
+                    Object.entries(value).map(([subKey, subValue]) => (
+                      <div key={subKey} className="admin-field-sub">
+                        <label>{subKey}</label>
+                        <textarea
+                          value={subValue}
+                          onChange={(e) => {
+                            const updated = contenido.map((item) =>
+                              item.id === docItem.id
+                                ? {
+                                    ...item,
+                                    [key]: {
+                                      ...item[key],
+                                      [subKey]: e.target.value,
+                                    },
+                                  }
+                                : item,
+                            );
+                            setContenido(updated);
+                          }}
+                        />
+                      </div>
+                    ))}
+
+                  {/* 🔸 ARRAY (Ej: Galería de fotos) */}
+                  {Array.isArray(value) && (
+                    <div className="admin-array">
+                      {value.map((item, index) => (
+                        <div key={index} className="admin-array-item">
+                          {Object.keys(item).map((field) => (
+                            <div key={field}>
+                              {field.includes("img") ||
+                              field.includes("url") ? (
+                                <input
+                                  type="file"
+                                  onChange={(e) =>
+                                    handleImageUpload(
+                                      docItem.id,
+                                      key,
+                                      e.target.files[0],
+                                      true,
+                                      index,
+                                    )
+                                  }
+                                />
+                              ) : (
+                                <input
+                                  value={item[field]}
+                                  onChange={(e) => {
+                                    const updated = [...value];
+                                    updated[index][field] = e.target.value;
+                                    handleChangeDoc(docItem.id, key, updated);
+                                  }}
+                                />
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              ))}
+              );
+            })}
 
-              <button
-                onClick={() => {
-                  const nuevo = Object.fromEntries(
-                    Object.keys(value[0] || {}).map((k) => [k, ""])
-                  );
-
-                  handleChange(key, [...value, nuevo]);
-                }}
-              >
-                + Agregar
-              </button>
-            </div>
-          )}
-
-          {/* 🔸 STRING */}
-          {typeof value === "string" && (
-            <textarea
-              value={value}
-              onChange={(e) => handleChange(key, e.target.value)}
-            />
-          )}
-
-        </div>
-      )}
-    </div>
-  );
-};
+            <button
+              className="btn-save"
+              onClick={async () => {
+                const config = MODULOS[moduloActivo];
+                try {
+                  await updateDocById(config.collection, docItem.id, docItem);
+                  alert("✅ Documento actualizado");
+                } catch (error) {
+                  alert("❌ Error guardando");
+                }
+              }}
+            >
+              Guardar Cambios
+            </button>
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
     <div className="admin-content">
       <h2>Administrador del Sitio</h2>
-
       <div className="admin-layout">
-        {/* 🔹 SIDEBAR */}
         <aside className="admin-sidebar">
           {Object.keys(MODULOS).map((mod) => (
             <button
@@ -157,24 +245,11 @@ const renderField = (key, value) => {
             </button>
           ))}
         </aside>
-
         <div className="admin-editor">
           <h3>{moduloActivo.toUpperCase()}</h3>
-
           <div className="admin-fields">
-            {Object.entries(contenido).map(([key, value]) =>
-              renderField(key, value)
-            )}
+            {contenido.map((docItem) => renderDocumento(docItem))}
           </div>
-
-          <button
-            onClick={() => {
-              console.log(`Guardar ${moduloActivo}:`, contenido);
-              alert("Revisa consola (simulación)");
-            }}
-          >
-            Guardar Cambios
-          </button>
         </div>
       </div>
     </div>
