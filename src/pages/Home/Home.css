@@ -8,21 +8,17 @@
 /* HERO */
 
 .hero {
-  position: relative;
-  background:
-    linear-gradient(rgba(11, 61, 145, 0.7), rgba(255, 140, 0, 0.5)),
+   background: linear-gradient(rgba(11, 61, 145, 0.7), rgba(255, 140, 0, 0.5)),
     url("/src/assets/img/futbol1.jpg");
   background-size: cover;
   background-position: center;
- min-height: 60vh; /* 👈 CLAVE */
-  padding: 40px 20px; 
+  height: clamp(280px, 45vh, 420px); /* 👈 CONTROL TOTAL */
   margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
-  z-index: 10;
 }
 
 .hero-content h1 {
@@ -157,7 +153,7 @@
   transform: scale(1.05);
   transition: 0.2s;
   background: #2ecc71;
-  color: white;
+  color: white; 
 }
 
 .horarios {
