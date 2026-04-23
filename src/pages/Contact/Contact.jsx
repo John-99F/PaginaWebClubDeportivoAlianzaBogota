@@ -1,6 +1,10 @@
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { FaWhatsapp, FaMailBulk } from "react-icons/fa";
+import { getCollection, getDocument } from "../../services/firestore";
+import Loader from "../../components/Loader/Loader";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import "./Contact.css";
 import contactInfo from "./ContactInfo";
 import Hero from "../../components/Hero/Hero";
@@ -8,14 +12,53 @@ import Hero from "../../components/Hero/Hero";
 export default function Contact() {
   const telefono = "573105127034";
   const mensaje = "Hola, quiero información sobre la escuela de fútbol";
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const load = async () => {
+      try {
+        setLoading(true); // empieza cargando
+
+        const hero = await getDocument("hero", "Contact");
+        const botones = await getDocument("boton", "contacto");
+        const contacto = await getDocument("contenido","contactos")
+        setData({
+          hero,
+          botones,
+          contacto
+        });
+      } catch (error) {
+        console.error("Error cargando datos:", error);
+      } finally {
+        setLoading(false); // 👈 termina de cargar
+      }
+    };
+
+    load();
+  }, []);
+
+  // 👇 este sí detecta el cambio real de data
+  useEffect(() => {
+    console.log("data actualizada:", data);
+  }, [data]);
+
+  if (loading) {
+    return (
+      <div>
+        <Header />
+        <Loader />
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="contact-page">
       <Header />
 
       <Hero
-        title={contactInfo.hero.tituloContact}
-        subtitle={contactInfo.hero.descripcionContact}
+        title={data.hero.titulo}
+        subtitle={data.hero.descripcion}
         image={contactInfo.hero.imagenContact}
       />
 
@@ -32,13 +75,13 @@ export default function Contact() {
         </div>
 
         <div className="contact-info">
-          <h2>{contactInfo.hero.tituloContact}</h2>
-          <p>{contactInfo.info.direccion}</p>
+          <h2>{data.hero.titulo}</h2>
+          <p>{data.contacto.direccion}</p>
           <p>
-            <FaWhatsapp /> {contactInfo.info.telefono}
+            <FaWhatsapp /> {data.contacto.telefono}
           </p>
           <p>
-            <FaMailBulk /> {contactInfo.info.correo}
+            <FaMailBulk /> {data.contacto.correo}
           </p>
 
           <div className="contact-buttons">
@@ -48,7 +91,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="btn-whatsapp"
             >
-              <FaWhatsapp /> {contactInfo.info.btnWhatsapp}
+              <FaWhatsapp /> {data.botones.texto}
             </a>
           </div>
         </div>

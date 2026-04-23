@@ -2,14 +2,15 @@
 .admin-content {
   padding: 30px;
   font-family: "Segoe UI", Tahoma, sans-serif;
-  background: #f5f7fb;
+  background: linear-gradient(rgba(11, 61, 145, 0.7), rgba(255, 140, 0, 0.7));
   min-height: 100vh;
 }
 
 /* 🔹 Título */
 .admin-content h2 {
   margin-bottom: 20px;
-  color: #0b3d91;
+  font-size: 40px;
+  color: white;
 }
 
 /* 🔹 Layout principal */
@@ -24,33 +25,41 @@
   background: #ffffff;
   border-radius: 12px;
   padding: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-/* Botones del menú */
 .admin-sidebar button {
   padding: 12px;
   border: none;
   border-radius: 8px;
-  background: #f0f2f7;
+  background: #e4e9f2; /* más visible que el anterior */
+  color: #1a1a1a; /* texto oscuro para contraste */
   cursor: pointer;
   font-weight: 500;
   text-align: left;
-  transition: 0.2s;
+  transition: all 0.25s ease;
 }
 
+/* Hover */
 .admin-sidebar button:hover {
   background: #0b3d91;
-  color: #fff;
+  color: #ffffff;
+  transform: translateX(4px); /* pequeño efecto moderno */
 }
 
 /* Activo */
 .admin-sidebar button.active {
   background: #0b3d91;
-  color: #fff;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(11, 61, 145, 0.3);
+}
+
+/* Opcional: separación entre botones */
+.admin-sidebar button + button {
+  margin-top: 8px;
 }
 
 /* 🔹 Editor */
@@ -58,7 +67,7 @@
   background: #ffffff;
   border-radius: 12px;
   padding: 25px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 /* Subtítulo módulo */
@@ -72,6 +81,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  font-size: 22px;
   color: var(--color-primary);
 }
 
@@ -82,7 +92,7 @@
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #dcdfe6;
-  font-size: 14px;
+  font-size: 22px;
   transition: 0.2s;
   outline: none;
   color: black;
@@ -241,7 +251,22 @@
 }
 
 .admin-field-sub {
-    margin-left: 20px;
-    border-left: 2px solid #eee;
-    padding-left: 10px;
+  margin-left: 20px;
+  border-left: 2px solid #eee;
+  padding-left: 10px;
+}
+.btn-logout {
+  margin-top: auto;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #e53935;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-logout:hover {
+  background: #c62828;
 }

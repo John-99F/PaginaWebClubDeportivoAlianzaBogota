@@ -9,7 +9,7 @@ export default function Login() {
   const handleLogin=()=>{
     if(user==="admin" && pass==="admin"){
       localStorage.setItem("token","token_simulado");
-      navigate("/admin");
+      navigate("/admin/contenido");
     }else alert("Credenciales incorrectas");
   };
   return (

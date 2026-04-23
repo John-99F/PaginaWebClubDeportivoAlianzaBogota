@@ -3,8 +3,9 @@ import {
   getCollection,
   getDocument,
   updateDocById,
-  uploadFile, // <--- Importa tu función de carga
+  uploadFile,
 } from "../../services/firestore";
+import { useNavigate } from "react-router-dom";
 
 import "./AdminContent.css";
 
@@ -23,7 +24,12 @@ export default function AdminContent() {
   const [contenido, setContenido] = useState([]);
   const [abiertos, setAbiertos] = useState({});
   const [cargandoImagen, setCargandoImagen] = useState(false);
+    const navigate=useNavigate();
 
+  const handleLogout = () => {
+    alert("Sesión cerrada");
+    navigate("/");
+  };
   useEffect(() => {
     const fetchData = async () => {
       const config = MODULOS[moduloActivo];
@@ -244,6 +250,9 @@ export default function AdminContent() {
               {mod.toUpperCase()}
             </button>
           ))}
+          <button className="btn-logout" onClick={handleLogout}>
+            CERRAR SESIÓN
+          </button>
         </aside>
         <div className="admin-editor">
           <h3>{moduloActivo.toUpperCase()}</h3>

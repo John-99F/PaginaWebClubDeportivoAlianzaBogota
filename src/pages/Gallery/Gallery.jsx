@@ -1,20 +1,57 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Hero from "../../components/Hero/Hero";
 import GalleryData from "./GalleryInfo";
+import { getCollection, getDocument } from "../../services/firestore";
+import Loader from "../../components/Loader/Loader";
+import { useNavigate } from "react-router-dom";
 import "./Gallery.css";
 
 export default function Gallery() {
   const [selectedImg, setSelectedImg] = useState(null);
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const load = async () => {
+      try {
+        setLoading(true); // empieza cargando
 
+        const hero = await getDocument("hero", "Gallery");
+
+        setData({
+          hero,
+        });
+      } catch (error) {
+        console.error("Error cargando datos:", error);
+      } finally {
+        setLoading(false); // 👈 termina de cargar
+      }
+    };
+
+    load();
+  }, []);
+
+  useEffect(() => {
+    console.log("data actualizada:", data);
+  }, [data]);
+
+  if (loading) {
+    return (
+      <div>
+        <Header />
+        <Loader />
+        <Footer />
+      </div>
+    );
+  }
   return (
     <div className="gallery-page">
       <Header />
 
       <Hero
-        title={GalleryData.hero.tituloGallery}
-        subtitle={GalleryData.hero.descripcionGallery}
+        title={data.hero.titulo}
+        subtitle={data.hero.descripcion}
         image={GalleryData.hero.imagenHero}
       />
 
