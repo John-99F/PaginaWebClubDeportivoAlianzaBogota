@@ -16,6 +16,7 @@ const MODULOS = {
   conocemos: { type: "collection", collection: "galeria" },
   botones: { type: "collection", collection: "boton" },
   portada: { type: "collection", collection: "hero" },
+  footer: { type: "collection", collection: "footer" },
   horarios: { type: "collection", collection: "horario" },
 };
 

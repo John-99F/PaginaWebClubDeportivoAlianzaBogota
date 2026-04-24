@@ -2,61 +2,114 @@ import "./Footer.css";
 import { FaInstagram, FaFacebook, FaTiktok, FaWhatsapp } from "react-icons/fa";
 import FooterInfo from "./FooterInfo";
 import { Link } from "react-router-dom";
-
+import { useEffect, useState } from "react";
+import { testConnection } from "../../services/testFirebase";
+import { getCollection, getDocument } from "../../services/firestore";
+import Loader from "../../components/Loader/Loader";
 
 export default function Footer() {
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true); // 👈 nuevo estado
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        setLoading(true); // empieza cargando
+
+        const contenido = await getDocument("contenido", "contactos");
+        const camposSimples = await getDocument("footer", "camposSimples");
+        const redesSociales = await getDocument("footer", "redes_sociales");
+        const enlaces = await getDocument("footer", "enlaces");
+
+        setData({
+          contenido,
+          camposSimples,
+          redesSociales,
+          enlaces
+        });
+      } catch (error) {
+        console.error("Error cargando datos:", error);
+      } finally {
+        setLoading(false); // 👈 termina de cargar
+      }
+    };
+
+    load();
+  }, []);
+
+  useEffect(() => {
+    console.log("data actualizada:", data);
+  }, [data]);
+
+  if (loading) {
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
+  }
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-section">
-          <h3>{FooterInfo.nombreClub}</h3>
-          <p>{FooterInfo.descripcion}</p>
+          <h3>{data.camposSimples.nombre_club}</h3>
+          <p>{data.camposSimples.descripcion}</p>
         </div>
 
         <div className="footer-section">
-          <h3>{FooterInfo.tituloEnlaces}</h3>
+          <h3>{data.camposSimples.titulo_enlaces}</h3>
 
-          <Link className="footer-section-nav" to="/">{FooterInfo.enlaces.inicio}</Link>
-          <Link className="footer-section-nav" to="/about">{FooterInfo.enlaces.nosotros}</Link>
-          <Link className="footer-section-nav" to="/gallery">{FooterInfo.enlaces.galeria}</Link>
-          <Link className="footer-section-nav" to="/category">{FooterInfo.enlaces.categoria}</Link>
-          <Link className="footer-section-nav" to="/contact">{FooterInfo.enlaces.contactos}</Link>
+          <Link className="footer-section-nav" to="/">
+            {data.enlaces.inicio}
+          </Link>
+          <Link className="footer-section-nav" to="/about">
+            {data.enlaces.nosotros}
+          </Link>
+          <Link className="footer-section-nav" to="/gallery">
+            {data.enlaces.galeria}
+          </Link>
+          <Link className="footer-section-nav" to="/category">
+            {data.enlaces.categoria}
+          </Link>
+          <Link className="footer-section-nav" to="/contact">
+            {data.enlaces.contactos}
+          </Link>
         </div>
         <div className="footer-section">
-          <h3>{FooterInfo.tituloContacto}</h3>
-          <p>{FooterInfo.direccion}</p>
+          <h3>{data.camposSimples.titulo_contacto}</h3>
+          <p>{data.contenido.direccion}</p>
           <a
             href="https://wa.me/573105127034?text=Hola%20quiero%20información%20sobre%20la%20escuela%20de%20fútbol"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaWhatsapp /> {FooterInfo.telefono}
+            <FaWhatsapp /> {data.contenido.telefono}
           </a>
-          <p>✉ {FooterInfo.correo}</p>
+          <p>✉ {data.contenido.correo}</p>
         </div>
 
         <div className="social-links">
-          <h3>{FooterInfo.tituloSiguenos}</h3>
+          <h3>{data.camposSimples.titulo_siguenos}</h3>
           <a
-            href={FooterInfo.redesSociales.instagram.url}
+            href={data.redesSociales.instagram.url}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaInstagram /> {FooterInfo.redesSociales.instagram.nombre}
+            <FaInstagram /> {data.redesSociales.instagram.nombre}
           </a>
           <a
-            href={FooterInfo.redesSociales.facebook.url}
+            href={data.redesSociales.facebook.url}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaFacebook /> {FooterInfo.redesSociales.facebook.nombre}
+            <FaFacebook /> {data.redesSociales.facebook.nombre}
           </a>
           <a
-            href={FooterInfo.redesSociales.tiktok.url}
+            href={data.redesSociales.tiktok.url}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaTiktok /> {FooterInfo.redesSociales.tiktok.nombre}
+            <FaTiktok /> {data.redesSociales.tiktok.nombre}
           </a>
         </div>
       </div>

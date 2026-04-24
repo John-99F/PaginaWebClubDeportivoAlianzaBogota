@@ -8,25 +8,33 @@
 /* HERO */
 
 .hero {
-   background: linear-gradient(rgba(11, 61, 145, 0.7), rgba(255, 140, 0, 0.5)),
+  background: linear-gradient(rgba(11, 61, 145, 0.7), rgba(255, 140, 0, 0.5)),
     url("/src/assets/img/futbol1.jpg");
   background-size: cover;
   background-position: center;
-  height: clamp(280px, 45vh, 420px); /* 👈 CONTROL TOTAL */
+
+  /* Altura inteligente */
+  min-height: 330px;
+  height: 50vh;
+  max-height: 600px;
+
   margin-top: 10px;
+
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
+
+  padding: 20px; /* evita que el texto se pegue en móvil */
 }
 
 .hero-content h1 {
-  font-size: 40px;
+  font-size: clamp(20px, 6vw, 40px);
 }
 
 .hero-content p {
-  font-size: 29px;
+  font-size: clamp(10px, 4vw, 29px);
 }
 
 .hero-btn {
