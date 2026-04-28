@@ -9,8 +9,11 @@ import Loader from "../../components/Loader/Loader";
 
 export default function Footer() {
   const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true); // 👈 nuevo estado
+  const [loading, setLoading] = useState(true);
+  const telefono = "573105127034";
 
+  const mensaje =
+    "Hola,\nEstoy interesad@ en recibir información sobre el Club Alianza Bogotá.\nEl año de nacimiento de mi hijo es: [AÑO]";
   useEffect(() => {
     const load = async () => {
       try {
@@ -25,7 +28,7 @@ export default function Footer() {
           contenido,
           camposSimples,
           redesSociales,
-          enlaces
+          enlaces,
         });
       } catch (error) {
         console.error("Error cargando datos:", error);
@@ -79,7 +82,7 @@ export default function Footer() {
           <h3>{data.camposSimples.titulo_contacto}</h3>
           <p>{data.contenido.direccion}</p>
           <a
-            href="https://wa.me/573105127034?text=Hola%20quiero%20información%20sobre%20la%20escuela%20de%20fútbol"
+            href={`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`}
             target="_blank"
             rel="noopener noreferrer"
           >
