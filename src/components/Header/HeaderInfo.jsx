@@ -2,7 +2,7 @@ const HeaderInfo = {
   inicio: "Inicio",
   nosotros: "Nosotros",
   galeria: "Conócenos",
-  categoria: "Categorias ",
+  categoria: "Categorías ",
   contactos: "Contáctanos",
 };
 

@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import {
   getCollection,
   getDocument,
-  updateDocById,
-  uploadFile,
+  updateDocById
 } from "../../services/firestore";
 import { useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase/config";
 
 import "./AdminContent.css";
 
@@ -13,10 +14,9 @@ const MODULOS = {
   inicio: { type: "collection", collection: "home" },
   contenido: { type: "collection", collection: "contenido" },
   categorias: { type: "collection", collection: "categorias" },
-  conocemos: { type: "collection", collection: "galeria" },
   botones: { type: "collection", collection: "boton" },
   portada: { type: "collection", collection: "hero" },
-  footer: { type: "collection", collection: "footer" },
+  "Pie de pagina": { type: "collection", collection: "footer" },
   horarios: { type: "collection", collection: "horario" },
 };
 
@@ -24,24 +24,28 @@ export default function AdminContent() {
   const [moduloActivo, setModuloActivo] = useState("inicio");
   const [contenido, setContenido] = useState([]);
   const [abiertos, setAbiertos] = useState({});
-  const [cargandoImagen, setCargandoImagen] = useState(false);
-    const navigate=useNavigate();
+  const navigate = useNavigate();
 
-  const handleLogout = () => {
-    alert("Sesión cerrada");
+  const handleLogout = async () => {
+    await signOut(auth);
     navigate("/");
   };
+
   useEffect(() => {
     const fetchData = async () => {
       const config = MODULOS[moduloActivo];
+
       let data = await (config.type === "collection"
         ? getCollection(config.collection)
         : getDocument(config.collection, config.doc));
 
       setContenido(
-        config.type === "doc" ? [{ id: config.doc, ...data }] : data || [],
+        config.type === "doc"
+          ? [{ id: config.doc, ...data }]
+          : data || []
       );
     };
+
     fetchData();
   }, [moduloActivo]);
 
@@ -51,42 +55,9 @@ export default function AdminContent() {
 
   const handleChangeDoc = (docId, key, value) => {
     const updated = contenido.map((item) =>
-      item.id === docId ? { ...item, [key]: value } : item,
+      item.id === docId ? { ...item, [key]: value } : item
     );
     setContenido(updated);
-  };
-
-  // --- Nueva función para manejar la subida de imágenes ---
-  const handleImageUpload = async (
-    docId,
-    key,
-    file,
-    isArray = false,
-    index = null,
-  ) => {
-    if (!file) return;
-    try {
-      setCargandoImagen(true);
-      const url = await uploadFile(file); // Sube a Storage y obtiene URL
-
-      if (isArray) {
-        const updatedDoc = contenido.find((item) => item.id === docId);
-        const updatedArray = [...updatedDoc[key]];
-        updatedArray[index] = {
-          ...updatedArray[index],
-          [Object.keys(updatedArray[index])[0]]: url,
-        }; // Ajustar según estructura
-        handleChangeDoc(docId, key, updatedArray);
-      } else {
-        handleChangeDoc(docId, key, url);
-      }
-      alert("Imagen subida con éxito");
-    } catch (error) {
-      console.error(error);
-      alert("Error al subir imagen");
-    } finally {
-      setCargandoImagen(false);
-    }
   };
 
   const renderDocumento = (docItem) => {
@@ -107,41 +78,12 @@ export default function AdminContent() {
             {Object.entries(docItem).map(([key, value]) => {
               if (key === "id") return null;
 
-              // Lógica para detectar si es campo de imagen
-              const isImageField =
-                key.toLowerCase().includes("img") ||
-                key.toLowerCase().includes("foto") ||
-                key.toLowerCase().includes("url") ||
-                key.toLowerCase().includes("imagen") ||
-                key.toLowerCase().includes("fondo");
-
               return (
                 <div key={key} className="admin-field">
                   <label>{key}</label>
 
-                  {/* 🔸 INPUT DE IMAGEN (Si detecta palabras clave) */}
-                  {isImageField && typeof value === "string" && (
-                    <div className="image-upload-container">
-                      {value && (
-                        <img
-                          src={value}
-                          alt="Preview"
-                          className="admin-preview-img"
-                        />
-                      )}
-                      <input
-                        type="file"
-                        accept="image/*"
-                        onChange={(e) =>
-                          handleImageUpload(docItem.id, key, e.target.files[0])
-                        }
-                      />
-                      {cargandoImagen && <small>Subiendo...</small>}
-                    </div>
-                  )}
-
-                  {/* 🔸 TEXTAREA (Solo si NO es imagen) */}
-                  {typeof value === "string" && !isImageField && (
+                  {/* 🔵 STRING */}
+                  {typeof value === "string" && (
                     <textarea
                       value={value}
                       onChange={(e) =>
@@ -150,9 +92,10 @@ export default function AdminContent() {
                     />
                   )}
 
-                  {/* 🔸 OBJETO */}
+                  {/* 🔵 OBJETO */}
                   {typeof value === "object" &&
                     !Array.isArray(value) &&
+                    value !== null &&
                     Object.entries(value).map(([subKey, subValue]) => (
                       <div key={subKey} className="admin-field-sub">
                         <label>{subKey}</label>
@@ -168,7 +111,7 @@ export default function AdminContent() {
                                       [subKey]: e.target.value,
                                     },
                                   }
-                                : item,
+                                : item
                             );
                             setContenido(updated);
                           }}
@@ -176,39 +119,39 @@ export default function AdminContent() {
                       </div>
                     ))}
 
-                  {/* 🔸 ARRAY (Ej: Galería de fotos) */}
+                  {/* 🔵 ARRAY */}
                   {Array.isArray(value) && (
                     <div className="admin-array">
                       {value.map((item, index) => (
                         <div key={index} className="admin-array-item">
-                          {Object.keys(item).map((field) => (
-                            <div key={field}>
-                              {field.includes("img") ||
-                              field.includes("url") ? (
-                                <input
-                                  type="file"
-                                  onChange={(e) =>
-                                    handleImageUpload(
-                                      docItem.id,
-                                      key,
-                                      e.target.files[0],
-                                      true,
-                                      index,
-                                    )
-                                  }
-                                />
-                              ) : (
-                                <input
-                                  value={item[field]}
-                                  onChange={(e) => {
-                                    const updated = [...value];
-                                    updated[index][field] = e.target.value;
-                                    handleChangeDoc(docItem.id, key, updated);
-                                  }}
-                                />
-                              )}
-                            </div>
-                          ))}
+
+                          {/* ARRAY DE STRINGS */}
+                          {typeof item === "string" && (
+                            <input
+                              value={item}
+                              onChange={(e) => {
+                                const updated = [...value];
+                                updated[index] = e.target.value;
+                                handleChangeDoc(docItem.id, key, updated);
+                              }}
+                            />
+                          )}
+
+                          {/* ARRAY DE OBJETOS */}
+                          {typeof item === "object" && item !== null && (
+                            Object.keys(item).map((field) => (
+                              <input
+                                key={field}
+                                value={item[field]}
+                                onChange={(e) => {
+                                  const updated = [...value];
+                                  updated[index][field] = e.target.value;
+                                  handleChangeDoc(docItem.id, key, updated);
+                                }}
+                              />
+                            ))
+                          )}
+
                         </div>
                       ))}
                     </div>
@@ -222,7 +165,11 @@ export default function AdminContent() {
               onClick={async () => {
                 const config = MODULOS[moduloActivo];
                 try {
-                  await updateDocById(config.collection, docItem.id, docItem);
+                  await updateDocById(
+                    config.collection,
+                    docItem.id,
+                    docItem
+                  );
                   alert("✅ Documento actualizado");
                 } catch (error) {
                   alert("❌ Error guardando");
@@ -240,6 +187,7 @@ export default function AdminContent() {
   return (
     <div className="admin-content">
       <h2>Administrador del Sitio</h2>
+
       <div className="admin-layout">
         <aside className="admin-sidebar">
           {Object.keys(MODULOS).map((mod) => (
@@ -251,12 +199,15 @@ export default function AdminContent() {
               {mod.toUpperCase()}
             </button>
           ))}
+
           <button className="btn-logout" onClick={handleLogout}>
             CERRAR SESIÓN
           </button>
         </aside>
+
         <div className="admin-editor">
           <h3>{moduloActivo.toUpperCase()}</h3>
+
           <div className="admin-fields">
             {contenido.map((docItem) => renderDocumento(docItem))}
           </div>

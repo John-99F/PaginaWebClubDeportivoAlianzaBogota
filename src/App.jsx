@@ -18,6 +18,8 @@ import Contact from "./pages/Contact/Contact.jsx";
 import Category from "./pages/Category/Category.jsx";
 import AdminContent from "./pages/Admin/AdminContent.jsx";
 import AdminImages from "./pages/Admin/AdminImages.jsx";
+import ProtectedRoute from "./ProtectedRoute";
+
 // Componente de login simple (puedes personalizarlo)
 
 // Simulación de autenticación
@@ -45,11 +47,11 @@ function App() {
         <Route path="/admin/contenido" element={<AdminContent />} />
         <Route path="/admin/imagenes" element={<AdminImages />} />
         <Route
-          path="/admin"
+          path="/admin/contenido"
           element={
-            <PrivateRoute>
-              <Admin />
-            </PrivateRoute>
+            <ProtectedRoute>
+              <AdminContent />
+            </ProtectedRoute>
           }
         />
 

@@ -11,7 +11,8 @@ import Hero from "../../components/Hero/Hero";
 
 export default function Contact() {
   const telefono = "573105127034";
-  const mensaje = "Hola, quiero información sobre la escuela de fútbol";
+  const mensaje =
+    "Hola,\nEstoy interesad@ en recibir información sobre el Club Alianza Bogotá.\nEl año de nacimiento de mi hijo es: [AÑO]";
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -21,11 +22,11 @@ export default function Contact() {
 
         const hero = await getDocument("hero", "Contact");
         const botones = await getDocument("boton", "contacto");
-        const contacto = await getDocument("contenido","contactos")
+        const contacto = await getDocument("contenido", "contactos");
         setData({
           hero,
           botones,
-          contacto
+          contacto,
         });
       } catch (error) {
         console.error("Error cargando datos:", error);

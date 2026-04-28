@@ -1,7 +1,7 @@
 /* 🔹 Contenedor principal */
 .admin-content {
   padding: 30px;
-  font-family: "Segoe UI", Tahoma, sans-serif;
+  font-family: "Nunito", "Quicksand", system-ui, sans-serif;
   background: linear-gradient(rgba(11, 61, 145, 0.7), rgba(255, 140, 0, 0.7));
   min-height: 100vh;
 }

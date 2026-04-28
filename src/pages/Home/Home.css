@@ -13,8 +13,7 @@
   background-size: cover;
   background-position: center;
 
-  /* Altura inteligente */
-  min-height: 330px;
+  min-height: 270px;
   height: 50vh;
   max-height: 600px;
 
@@ -25,8 +24,10 @@
   justify-content: center;
   text-align: center;
   color: white;
+    gap: 12px; 
 
-  padding: 20px; /* evita que el texto se pegue en móvil */
+
+  padding: 20px;
 }
 
 .hero-content h1 {
@@ -34,7 +35,7 @@
 }
 
 .hero-content p {
-  font-size: clamp(10px, 4vw, 29px);
+  font-size: clamp(12px, 4vw, 29px);
 }
 
 .hero-btn {
@@ -70,6 +71,7 @@
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 25px;
 }
+
 .home-main h2 {
   font-size: 32px;
 }
@@ -104,7 +106,6 @@
 
 .categorias-grid {
   margin-top: 30px;
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
@@ -113,6 +114,7 @@
 .categorias-grid p {
   font-size: 20px;
 }
+
 .categorias h2 {
   font-size: 32px;
 }
@@ -120,6 +122,7 @@
 .categorias-grid h3 {
   font-size: 25px;
 }
+
 .categoria-card {
   background: var(--color-primary);
   color: white;
@@ -145,6 +148,7 @@
 .inscripciones p {
   font-size: 25px;
 }
+
 .btn-inscripcion {
   display: inline-block;
   background: green;
@@ -161,8 +165,10 @@
   transform: scale(1.05);
   transition: 0.2s;
   background: #2ecc71;
-  color: white; 
+  color: white;
 }
+
+/* HORARIOS */
 
 .horarios {
   padding: 10px 20px;
@@ -186,6 +192,8 @@
   font-weight: bold;
 }
 
+/* CLUB INFO */
+
 .club-info {
   padding: 30px;
   background: #f9f9f9;
@@ -194,12 +202,11 @@
 .club-info-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   max-width: 1100px;
   margin: auto;
 }
 
-/* IMAGEN */
 .club-info-image {
   flex: 1;
 }
@@ -211,7 +218,6 @@
   object-fit: contain;
 }
 
-/* TEXTO */
 .club-info-text {
   flex: 1;
 }
@@ -228,9 +234,95 @@
   color: black;
 }
 
-/* RESPONSIVE */
+/* ===================== */
+/* 🔽 RESPONSIVE TABLET */
+/* ===================== */
+
+@media (max-width: 1024px) {
+  .home-main {
+    gap: 20px;
+  }
+
+  .home-main p,
+  .club-info-text p,
+  .inscripciones p {
+    font-size: 20px;
+  }
+
+  .club-info-image img {
+    height: 300px;
+  }
+}
+
+/* ===================== */
+/* 🔽 RESPONSIVE MOVIL */
+/* ===================== */
+
 @media (max-width: 768px) {
+  .gallery-section,
+  .home-main,
+  .categorias,
+  .inscripciones {
+    padding: 30px 15px;
+  }
+
+  .home-main h2,
+  .categorias h2,
+  .inscripciones h2,
+  .club-info-text h2 {
+    font-size: 24px;
+  }
+
+  .home-main p,
+  .categorias-grid p,
+  .club-info-text p,
+  .inscripciones p {
+    font-size: 18px;
+  }
+
+  .categorias-grid h3 {
+    font-size: 20px;
+  }
+
+  .btn-inscripcion {
+    font-size: 18px;
+    padding: 10px 16px;
+  }
+
   .club-info-container {
     flex-direction: column;
+    text-align: center;
+  }
+
+  .club-info-image img {
+    height: auto;
+  }
+}
+
+/* ===================== */
+/* 🔽 RESPONSIVE PEQUEÑO */
+/* ===================== */
+
+@media (max-width: 480px) {
+  .hero {
+    height: 40vh;
+  }
+
+  .hero-content h1 {
+    font-size: 22px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .hero-btn {
+    padding: 10px 18px;
+  }
+
+  .home-main p,
+  .club-info-text p,
+  .inscripciones p {
+    font-size: 16px;
   }
 }

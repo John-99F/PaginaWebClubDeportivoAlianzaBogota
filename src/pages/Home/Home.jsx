@@ -13,7 +13,9 @@ import "./Home.css";
 export default function Home() {
   const navigate = useNavigate();
   const format = (text) => text.toLowerCase().replace(/\s+/g, "-");
-
+  const telefono = "573105127034";
+  const mensaje =
+    "Hola,\nEstoy interesad@ en recibir información sobre el Club Alianza Bogotá.\nEl año de nacimiento de mi hijo es: [AÑO]";
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true); // 👈 nuevo estado
 
@@ -70,7 +72,7 @@ export default function Home() {
           <h1>{data.hero.titulo}</h1>
           <p>{data.hero.descripcion} </p>
           <a
-            href="https://wa.me/573105127034?text=Hola%20quiero%20información%20sobre%20la%20escuela%20de%20fútbol"
+            href={`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-inscripcion"
