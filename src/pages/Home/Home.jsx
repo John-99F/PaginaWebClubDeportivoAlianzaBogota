@@ -123,7 +123,7 @@ export default function Home() {
                     navigate(`/category/${format(element.categoria)}`);
                   }}
                 >
-                  <h3>{element.rango_anos} :</h3>
+                  <h3>{element.rango_anos}</h3>
                   <h3>{element.categoria}</h3>
                 </div>
               );

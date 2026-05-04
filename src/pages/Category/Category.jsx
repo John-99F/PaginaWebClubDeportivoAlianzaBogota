@@ -16,7 +16,7 @@ export default function Category() {
   useEffect(() => {
     const load = async () => {
       try {
-        setLoading(true); // empieza cargando
+        setLoading(true);
 
         const hero = await getDocument("hero", "categorias");
 
