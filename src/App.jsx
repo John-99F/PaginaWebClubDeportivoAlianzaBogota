@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  BrowserRouter as Router, 
+  HashRouter as Router, // Restaurado a HashRouter
   Routes,
   Route,
   Navigate,
@@ -13,6 +13,7 @@ import Login from "./pages/Login/login.jsx";
 import Contact from "./pages/Contact/Contact.jsx";
 import Category from "./pages/Category/Category.jsx";
 
+// Componentes Administrativos
 import Admin from "./pages/Admin/Admin.jsx";
 import AdminContent from "./pages/Admin/AdminContent.jsx";
 import AdminImages from "./pages/Admin/AdminImages.jsx";
@@ -22,6 +23,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* Rutas Públicas */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/gallery" element={<Gallery />} />
@@ -30,6 +32,7 @@ function App() {
         <Route path="/category" element={<Category />} />
         <Route path="/category/:categoria" element={<Category />} />
 
+        {/* Rutas Administrativas Protegidas */}
         <Route 
           path="/admin" 
           element={
@@ -55,6 +58,7 @@ function App() {
           }
         />
 
+        {/* Redirección por defecto */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
