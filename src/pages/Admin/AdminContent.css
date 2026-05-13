@@ -1,4 +1,3 @@
-/* 🔹 Contenedor principal */
 .admin-content {
   padding: 30px;
   font-family: "Nunito", "Quicksand", system-ui, sans-serif;
@@ -6,21 +5,18 @@
   min-height: 100vh;
 }
 
-/* 🔹 Título */
 .admin-content h2 {
   margin-bottom: 20px;
   font-size: 40px;
   color: white;
 }
 
-/* 🔹 Layout principal */
 .admin-layout {
   display: grid;
   grid-template-columns: 250px 1fr;
   gap: 20px;
 }
 
-/* 🔹 Sidebar */
 .admin-sidebar {
   background: #ffffff;
   border-radius: 12px;
@@ -35,34 +31,32 @@
   padding: 12px;
   border: none;
   border-radius: 8px;
-  background: #e4e9f2; /* más visible que el anterior */
-  color: #1a1a1a; /* texto oscuro para contraste */
+  background: #e4e9f2;
+  color: #1a1a1a;
   cursor: pointer;
   font-weight: 500;
   text-align: left;
   transition: all 0.25s ease;
 }
 
-/* Hover */
+
 .admin-sidebar button:hover {
   background: #0b3d91;
   color: #ffffff;
-  transform: translateX(4px); /* pequeño efecto moderno */
+  transform: translateX(4px); 
 }
 
-/* Activo */
+
 .admin-sidebar button.active {
   background: #0b3d91;
   color: #ffffff;
   box-shadow: 0 4px 10px rgba(11, 61, 145, 0.3);
 }
 
-/* Opcional: separación entre botones */
 .admin-sidebar button + button {
   margin-top: 8px;
 }
 
-/* 🔹 Editor */
 .admin-editor {
   background: #ffffff;
   border-radius: 12px;
@@ -70,13 +64,11 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Subtítulo módulo */
 .admin-editor h3 {
   margin-bottom: 15px;
   color: #333;
 }
 
-/* 🔹 Campos */
 .admin-fields {
   display: flex;
   flex-direction: column;
@@ -85,7 +77,6 @@
   color: var(--color-primary);
 }
 
-/* Inputs y textareas */
 .admin-fields input,
 .admin-fields textarea {
   width: 100%;
@@ -99,20 +90,17 @@
   background-color: white;
 }
 
-/* Focus */
 .admin-fields input:focus,
 .admin-fields textarea:focus {
   border-color: #0b3d91;
   box-shadow: 0 0 0 2px rgba(11, 61, 145, 0.1);
 }
 
-/* Textarea tamaño */
 .admin-fields textarea {
   min-height: 100px;
   resize: vertical;
 }
 
-/* 🔹 Botón guardar */
 .admin-editor button {
   margin-top: 20px;
   padding: 12px 18px;
@@ -129,13 +117,11 @@
   background: #082c6c;
 }
 
-/* Botón deshabilitado */
 .admin-editor button:disabled {
   background: #a0aec0;
   cursor: not-allowed;
 }
 
-/* 🔹 Responsive */
 @media (max-width: 768px) {
   .admin-layout {
     grid-template-columns: 1fr;
@@ -152,15 +138,14 @@
   }
 }
 
-/* Contenido interno */
 .admin-section-body {
   padding: 15px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 
-  max-height: 300px; /* 🔹 altura fija */
-  overflow-y: auto; /* 🔹 activa scroll vertical */
+  max-height: 300px;
+  overflow-y: auto;
 
   animation: fadeIn 0.2s ease-in-out;
 }
@@ -177,7 +162,6 @@
 .admin-section-body::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-/* Animación suave */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -192,7 +176,7 @@
 .admin-section-header {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* separa texto y botón */
+  justify-content: space-between;
   padding: 12px 15px;
   cursor: pointer;
   background: #f9fafb;
@@ -200,12 +184,10 @@
   transition: 0.2s;
 }
 
-/* Hover más pro */
 .admin-section-header:hover {
   background: #eef2ff;
 }
 
-/* Título */
 .admin-title {
   margin: 0;
   font-size: 15px;
@@ -213,7 +195,6 @@
   color: #333;
 }
 
-/* Botón + / - */
 .admin-toggle {
   font-size: 18px;
   font-weight: bold;
@@ -227,7 +208,6 @@
   transition: 0.2s;
 }
 
-/* Hover del icono */
 .admin-section-header:hover .admin-toggle {
   background: #0b3d91;
   color: #fff;

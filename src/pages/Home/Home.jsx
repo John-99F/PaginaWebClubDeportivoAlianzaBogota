@@ -17,12 +17,12 @@ export default function Home() {
   const mensaje =
     "Hola,\nEstoy interesad@ en recibir información sobre el Club Alianza Bogotá.\nEl año de nacimiento de mi hijo es: [AÑO]";
   const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true); // 👈 nuevo estado
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const load = async () => {
       try {
-        setLoading(true); // empieza cargando
+        setLoading(true); 
 
         const hero = await getDocument("hero", "Home");
         const afiliacion = await getDocument("home", "Afiliacion");
@@ -41,14 +41,13 @@ export default function Home() {
       } catch (error) {
         console.error("Error cargando datos:", error);
       } finally {
-        setLoading(false); // 👈 termina de cargar
+        setLoading(false); 
       }
     };
 
     load();
   }, []);
 
-  // 👇 este sí detecta el cambio real de data
   useEffect(() => {
     console.log("data actualizada:", data);
   }, [data]);
@@ -91,7 +90,7 @@ export default function Home() {
 
       <main className="home-main">
         {data.contenido
-          ?.filter((c) => c.titulo && c.titulo.trim() !== "") // 👈 valida título
+          ?.filter((c) => c.titulo && c.titulo.trim() !== "")
           .map((c, index) => (
             <section
               key={index}
@@ -112,7 +111,7 @@ export default function Home() {
         <div className="categorias-grid">
           {data.categorias
             ?.sort((a, b) => a.Index - b.Index)
-            .filter((cat) => cat.rango_anos && cat.rango_anos.trim() !== "") // 👈 filtro
+            .filter((cat) => cat.rango_anos && cat.rango_anos.trim() !== "") 
             .map((element, index) => {
               return (
                 <div
@@ -148,7 +147,7 @@ export default function Home() {
         <h2>{data.inscripciones.titulo}</h2>
         <p>{data.inscripciones.descripcion}</p>
         <a
-          href="https://wa.me/573105127034?text=Hola%20quiero%20información%20sobre%20la%20escuela%20de%20fútbol"
+          href={`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="btn-whatsapp"

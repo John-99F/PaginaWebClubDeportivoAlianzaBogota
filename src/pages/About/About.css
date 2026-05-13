@@ -4,8 +4,6 @@
   color: black;
 }
 
-/* HERO */
-
 .about-hero {
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -32,8 +30,6 @@
   font-size: 20px;
 }
 
-/* SECCION HISTORIA */
-
 .about-section {
   padding: 50px 20px;
   display: flex;
@@ -54,7 +50,6 @@
 .about-content p {
     font-size: 25px;
 }
-/* GRID */
 
 .about-grid {
   display: grid;
@@ -84,8 +79,6 @@
 .about-card p {
   font-size: 25px;
 }
-
-/* VALORES */
 
 .about-values {
   padding: 50px 20px;

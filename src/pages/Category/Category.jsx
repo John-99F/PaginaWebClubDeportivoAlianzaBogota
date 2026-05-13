@@ -29,7 +29,7 @@ export default function Category() {
       } catch (error) {
         console.error("Error cargando datos:", error);
       } finally {
-        setLoading(false); // 👈 termina de cargar
+        setLoading(false);
       }
     };
 
@@ -37,7 +37,7 @@ export default function Category() {
   }, []);
 
   useEffect(() => {
-    if (loading) return; // 👈 clave
+    if (loading) return;
     if (!categoria || !data.categorias) return;
 
     const navbar = document.querySelector("header");

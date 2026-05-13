@@ -13,7 +13,7 @@ export default function About() {
   useEffect(() => {
     const load = async () => {
       try {
-        setLoading(true); // empieza cargando
+        setLoading(true);
 
         const hero = await getDocument("hero", "About");
         const contenido = await getCollection("contenido");
@@ -24,14 +24,13 @@ export default function About() {
       } catch (error) {
         console.error("Error cargando datos:", error);
       } finally {
-        setLoading(false); // 👈 termina de cargar
+        setLoading(false);
       }
     };
 
     load();
   }, []);
 
-  // 👇 este sí detecta el cambio real de data
   useEffect(() => {
     console.log("data actualizada:", data);
   }, [data]);

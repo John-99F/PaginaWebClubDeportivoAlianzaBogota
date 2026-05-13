@@ -1,18 +1,14 @@
-/* Modo debug - QUITAR LUEGO*/
-/**{
-    outline: 1px solid red;
-} */
+
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
-/* reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* tamaño completo de la pantalla */
+
 html,
 body,
 #root {
@@ -20,7 +16,7 @@ body,
   min-height: 100vh;
 }
 
-/* evitar scroll horizontal */
+
 body {
   overflow-x: hidden;
 }
@@ -35,11 +31,11 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --color-primary: #144ea1; /* azul principal */
-  --color-secondary: #d9480f; /* Naranja */
-  --color-accent: #ffd400; /* amarillo */
-  --color-light: #ffffff; /* blanco */
-  --color-bg: #f5f5f5; /* fondo suave */
+  --color-primary: #144ea1;
+  --color-secondary: #d9480f;
+  --color-accent: #ffd400;
+  --color-light: #ffffff;
+  --color-bg: #f5f5f5;
 }
 
 a {

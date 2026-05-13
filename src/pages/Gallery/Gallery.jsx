@@ -15,7 +15,7 @@ export default function Gallery() {
   useEffect(() => {
     const load = async () => {
       try {
-        setLoading(true); // empieza cargando
+        setLoading(true);
 
         const hero = await getDocument("hero", "Gallery");
 
@@ -25,7 +25,7 @@ export default function Gallery() {
       } catch (error) {
         console.error("Error cargando datos:", error);
       } finally {
-        setLoading(false); // 👈 termina de cargar
+        setLoading(false);
       }
     };
 

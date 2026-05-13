@@ -1,18 +1,16 @@
 import React from "react";
 import {
-  HashRouter as Router, // 👈 CAMBIO CLAVE
+  HashRouter as Router,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom";
 
-// Páginas públicas
 import Home from "./pages/Home/Home.jsx";
 import About from "./pages/About/About.jsx";
 import Gallery from "./pages/Gallery/Gallery.jsx";
 import Login from "./pages/Login/login.jsx";
 
-// Dashboard / Admin
 import Admin from "./pages/Admin/Admin.jsx";
 import Contact from "./pages/Contact/Contact.jsx";
 import Category from "./pages/Category/Category.jsx";
@@ -20,14 +18,11 @@ import AdminContent from "./pages/Admin/AdminContent.jsx";
 import AdminImages from "./pages/Admin/AdminImages.jsx";
 import ProtectedRoute from "./ProtectedRoute";
 
-// Componente de login simple (puedes personalizarlo)
 
-// Simulación de autenticación
 const isAuthenticated = () => {
   return localStorage.getItem("token") ? true : false;
 };
 
-// Protege la ruta del admin
 const PrivateRoute = ({ children }) => {
   return isAuthenticated() ? children : <Navigate to="/login" />;
 };

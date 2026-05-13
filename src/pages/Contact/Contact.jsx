@@ -31,14 +31,13 @@ export default function Contact() {
       } catch (error) {
         console.error("Error cargando datos:", error);
       } finally {
-        setLoading(false); // 👈 termina de cargar
+        setLoading(false);
       }
     };
 
     load();
   }, []);
 
-  // 👇 este sí detecta el cambio real de data
   useEffect(() => {
     console.log("data actualizada:", data);
   }, [data]);

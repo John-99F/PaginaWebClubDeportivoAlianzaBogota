@@ -8,7 +8,6 @@ export default function AdminImages() {
   const handleUpload = (img) => {
     setImagen(img);
 
-    // guardar en localStorage
     localStorage.setItem("imagen_admin", img);
 
     setSaved(true);
