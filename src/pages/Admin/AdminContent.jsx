@@ -28,7 +28,7 @@ export default function AdminContent() {
 
   const handleLogout = async () => {
     await signOut(auth);
-    navigate("/");
+    navigate("/",{ replace: true });
   };
 
   useEffect(() => {

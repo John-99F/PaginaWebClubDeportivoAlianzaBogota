@@ -12,7 +12,7 @@ export default function Login() {
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, user, pass);
-      navigate("/admin/contenido");
+      navigate("/admin/contenido", {replace:true});
     } catch (error) {
       alert("Credenciales incorrectas");
       console.error(error);

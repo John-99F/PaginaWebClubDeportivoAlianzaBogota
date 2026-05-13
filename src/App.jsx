@@ -18,7 +18,6 @@ import AdminContent from "./pages/Admin/AdminContent.jsx";
 import AdminImages from "./pages/Admin/AdminImages.jsx";
 import ProtectedRoute from "./ProtectedRoute";
 
-
 const isAuthenticated = () => {
   return localStorage.getItem("token") ? true : false;
 };
@@ -39,8 +38,6 @@ function App() {
         <Route path="/category" element={<Category />} />
         <Route path="/category/:categoria" element={<Category />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/admin/contenido" element={<AdminContent />} />
-        <Route path="/admin/imagenes" element={<AdminImages />} />
         <Route
           path="/admin/contenido"
           element={
